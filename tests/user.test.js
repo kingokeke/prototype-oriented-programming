@@ -44,4 +44,9 @@ describe('User', function() {
 		var kingsley = new User('Kingsley', 'kingsley@mail.com', '1961');
 		expect(kingsley.readUser('user-2')).toBeDefined();
 	});
+
+	it('should query the database for a user using the userID and throw an error if the user is NOT found', function() {
+		var kingsley = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(kingsley.readUser('user-2000')).toThrowError();
+	});
 });
