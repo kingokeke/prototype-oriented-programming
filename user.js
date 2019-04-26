@@ -18,6 +18,8 @@ var User = (function() {
 			isAdmin: this.isAdmin,
 			isActive: true,
 		};
+
+		DB.userCount++;
 	}
 
 	return User;

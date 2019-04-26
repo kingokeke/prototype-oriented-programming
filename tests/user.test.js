@@ -34,8 +34,9 @@ describe('User', function() {
 		expect(new User('Kingsley', 'kingsley@mail.com', '1961')).toHaveProperty('isAdmin', false);
 	});
 
-	it('should auto-increment the user count', function() {
-		var kingsley = new User('Kingsley', 'kingsley@mail.com', '1961');
-		expect(DB.userCount).toBe(1);
+	it('should auto-increment the user count after instantiating a User', function() {
+		var currentUserCount = DB.userCount;
+		new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(DB.userCount).toBe(currentUserCount + 1);
 	});
 });
