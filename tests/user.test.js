@@ -13,4 +13,8 @@ describe('User', function() {
 			new User('Kingsley', 'kingsley@mail.com', 1961);
 		}).toThrow();
 	});
+
+	it('should return an object with name as a property', function() {
+		expect(new User('Kingsley', 'kingsley@mail.com', '1961')).toHaveProperty('name', 'Kingsley');
+	});
 });
