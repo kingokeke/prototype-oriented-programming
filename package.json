@@ -1,0 +1,23 @@
+{
+	"name": "prototype-oriented-programming",
+	"version": "1.0.0",
+	"description": "This is a set of practice questions aimed at understanding the inner workings of JavaScript's prototype system of inheritance and unique implementation of classical object oriented techniques in programming",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest --watchAll --coverage"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kingokeke/prototype-oriented-programming.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/kingokeke/prototype-oriented-programming/issues"
+	},
+	"homepage": "https://github.com/kingokeke/prototype-oriented-programming#readme",
+	"devDependencies": {
+		"jest": "^24.7.1"
+	}
+}
