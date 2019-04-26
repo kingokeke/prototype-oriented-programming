@@ -9,6 +9,15 @@ var User = (function() {
 		this.password = password;
 		this.userID = 'user-' + (Number(DB.userCount) + 1);
 		this.isAdmin = false;
+
+		DB.users[this.userID] = {
+			userID: this.userID,
+			name: this.name,
+			email: this.email,
+			password: this.password,
+			isAdmin: this.isAdmin,
+			isActive: true,
+		};
 	}
 
 	return User;
