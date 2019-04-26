@@ -22,6 +22,11 @@ var User = (function() {
 		DB.userCount++;
 	}
 
+	User.prototype.readUser = function(userID) {
+		console.log(DB.users[userID]);
+		return DB.users[userID];
+	};
+
 	return User;
 })();
 
