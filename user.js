@@ -8,6 +8,7 @@ var User = (function() {
 		this.email = email;
 		this.password = password;
 		this.userID = 'user-' + (Number(DB.userCount) + 1);
+		this.isAdmin = false;
 	}
 
 	return User;
