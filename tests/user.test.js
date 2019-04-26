@@ -39,4 +39,9 @@ describe('User', function() {
 		new User('Kingsley', 'kingsley@mail.com', '1961');
 		expect(DB.userCount).toBe(currentUserCount + 1);
 	});
+
+	it('should query the database for a user using the userID and return the user details if the user is found', function() {
+		var kingsley = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(kingsley.readUser('user-2')).toBeDefined();
+	});
 });
