@@ -27,6 +27,6 @@ describe('User', function() {
 	});
 
 	it('should return an object with id as a property', function() {
-		expect(new User('Kingsley', 'kingsley@mail.com', '1961')).toHaveProperty('id');
+		expect(new User('Kingsley', 'kingsley@mail.com', '1961')).toHaveProperty('userID');
 	});
 });

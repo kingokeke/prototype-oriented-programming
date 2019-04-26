@@ -7,6 +7,7 @@ var User = (function() {
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.userID = 'user-' + (Number(DB.userCount) + 1);
 	}
 
 	return User;
