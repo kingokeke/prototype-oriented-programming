@@ -23,6 +23,10 @@ var User = (function() {
 	}
 
 	User.prototype.readUser = function(userID) {
+		if (!DB.users.hasOwnProperty(userID)) {
+			console.log('This userID was not found in the database. Exiting...');
+			throw new Error('This userID was not found in the database.');
+		}
 		console.log(DB.users[userID]);
 		return DB.users[userID];
 	};
