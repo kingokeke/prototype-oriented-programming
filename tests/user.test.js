@@ -26,7 +26,11 @@ describe('User', function() {
 		expect(new User('Kingsley', 'kingsley@mail.com', '1961')).toHaveProperty('password', '1961');
 	});
 
-	it('should return an object with id as a property', function() {
+	it('should return an object with userID as a property', function() {
 		expect(new User('Kingsley', 'kingsley@mail.com', '1961')).toHaveProperty('userID');
+	});
+
+	it('should return an object with isAdmin as a property', function() {
+		expect(new User('Kingsley', 'kingsley@mail.com', '1961')).toHaveProperty('isAdmin', false);
 	});
 });
