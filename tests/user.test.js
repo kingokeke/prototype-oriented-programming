@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 
+var DB = require('../db');
 var User = require('../user');
 
 describe('User', function() {
