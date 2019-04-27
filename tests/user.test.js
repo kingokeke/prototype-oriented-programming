@@ -86,4 +86,12 @@ describe('User.prototype.searchUsername', function() {
 			king4.searchUsername('Paul');
 		}).toThrowError();
 	});
+
+	it('should not allow deleted users to access readUser method', function() {
+		var king5 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		DB.users[king5.userID].isActive = false;
+		expect(function() {
+			king5.searchUsername('Kingsley');
+		}).toThrowError();
+	});
 });
