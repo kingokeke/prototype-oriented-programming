@@ -51,4 +51,13 @@ describe('User', function() {
 			kingsley.readUser('user-20000');
 		}).toThrowError();
 	});
+
+	it('should not allow deleted users to access readUser method', function() {
+		var king = new User('Kingsley', 'kingsley@mail.com', '1961');
+		DB.users[king.userID].isActive = false;
+		console.log(DB.users[king.userID]);
+		expect(function() {
+			king.readUser('user-3');
+		}).toThrowError();
+	});
 });
