@@ -28,7 +28,7 @@ var User = (function() {
 			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
 		}
 		console.log('Querying the database for user with userID: ' + userID);
-		if (!DB.users.hasOwnProperty(userID)) {
+		if (!DB.users.hasOwnProperty(userID) || DB.users[userID].isActive === false) {
 			console.log('The user with userID ' + userID + ' was not found in the database.');
 			throw new Error('The user with userID ' + userID + ' was not found in the database.');
 		}
