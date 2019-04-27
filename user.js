@@ -23,10 +23,12 @@ var User = (function() {
 	}
 
 	User.prototype.readUser = function(userID) {
+		console.log('Querying the database for user with userID: ' + userID);
 		if (!DB.users.hasOwnProperty(userID)) {
-			console.log('This userID was not found in the database. Exiting...');
-			throw new Error('This userID was not found in the database.');
+			console.log('The user with userID ' + userID + ' was not found in the database.');
+			throw new Error('The user with userID ' + userID + ' was not found in the database.');
 		}
+		console.log('User with userID: ' + userID + ' found. Retrieving user details...');
 		console.log(DB.users[userID]);
 		return DB.users[userID];
 	};
