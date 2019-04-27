@@ -33,8 +33,14 @@ var User = (function() {
 			throw new Error('The user with userID ' + userID + ' was not found in the database.');
 		}
 		console.log('User with userID: ' + userID + ' found. Retrieving user details...');
-		console.log(DB.users[userID]);
-		return DB.users[userID];
+		var result = {
+			userID: DB.users[userID].userID,
+			name: DB.users[userID].name,
+			email: DB.users[userID].email,
+			isAdmin: DB.users[userID].isAdmin,
+		};
+		console.log(result);
+		return result;
 	};
 
 	return User;
