@@ -75,8 +75,15 @@ describe('User.prototype.readUser', function() {
 });
 
 describe('User.prototype.searchUsername', function() {
-	it('should search the DB for users whose username match the search query and return all matches', function() {
+	it('should search the DB for users whose username match the search query and return all matches if the username is found', function() {
 		var king3 = new User('Kingsley', 'kingsley@mail.com', '1961');
 		expect(king3.searchUsername('Kingsley')).toBeDefined();
+	});
+
+	it('should search the DB for users whose username match the search query and throw an error if the username is not found', function() {
+		var king4 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(function() {
+			king4.searchUsername('Paul');
+		}).toThrowError();
 	});
 });
