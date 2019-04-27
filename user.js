@@ -27,11 +27,13 @@ var User = (function() {
 			console.log('Your account has been disabled. Please contact an admin for further assistance.');
 			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
 		}
+
 		console.log('Querying the database for user with userID: ' + userID);
 		if (!DB.users.hasOwnProperty(userID) || DB.users[userID].isActive === false) {
 			console.log('The user with userID ' + userID + ' was not found in the database.');
 			throw new Error('The user with userID ' + userID + ' was not found in the database.');
 		}
+
 		console.log('User with userID: ' + userID + ' found. Retrieving user details...');
 		var result = {
 			userID: DB.users[userID].userID,
@@ -39,6 +41,7 @@ var User = (function() {
 			email: DB.users[userID].email,
 			isAdmin: DB.users[userID].isAdmin,
 		};
+
 		console.log(result);
 		return result;
 	};
