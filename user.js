@@ -23,6 +23,10 @@ var User = (function() {
 	}
 
 	User.prototype.readUser = function(userID) {
+		if (DB.users[this.userID].isActive === false) {
+			console.log('Your account has been disabled. Please contact an admin for further assistance.');
+			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
+		}
 		console.log('Querying the database for user with userID: ' + userID);
 		if (!DB.users.hasOwnProperty(userID)) {
 			console.log('The user with userID ' + userID + ' was not found in the database.');
