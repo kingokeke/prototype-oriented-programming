@@ -47,6 +47,11 @@ var User = (function() {
 	};
 
 	User.prototype.searchUsername = function(username) {
+		if (DB.users[this.userID].isActive === false) {
+			console.log('Your account has been disabled. Please contact an admin for further assistance.');
+			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
+		}
+
 		var userIDs = Object.keys(DB.users);
 		var matches = [];
 
