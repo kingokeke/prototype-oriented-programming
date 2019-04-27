@@ -73,3 +73,10 @@ describe('User.prototype.readUser', function() {
 		}).toThrowError();
 	});
 });
+
+describe('User.prototype.searchUsername', function() {
+	it('should search the DB for users whose username match the search query and return all matches', function() {
+		var king3 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(king3.searchUsername('Kingsley')).toBeDefined();
+	});
+});
