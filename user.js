@@ -46,6 +46,23 @@ var User = (function() {
 		return result;
 	};
 
+	User.prototype.searchUsername = function(username) {
+		var userIDs = Object.keys(DB.users);
+		var matches = [];
+		for (var i = 0; i < userIDs.length; i++) {
+			if (DB.users[userIDs[i]].name === username) {
+				var match = {
+					userID: DB.users[userIDs[i]].userID,
+					name: DB.users[userIDs[i]].name,
+					email: DB.users[userIDs[i]].email,
+					isAdmin: DB.users[userIDs[i]].isAdmin,
+				};
+				matches[matches.length] = match;
+			}
+		}
+		console.log(matches);
+		return matches;
+	};
 	return User;
 })();
 
