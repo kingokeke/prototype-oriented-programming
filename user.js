@@ -57,7 +57,7 @@ var User = (function() {
 
 		console.log('Querying the database for users with username: ' + username);
 		for (var i = 0; i < userIDs.length; i++) {
-			if (DB.users[userIDs[i]].name === username) {
+			if (DB.users[userIDs[i]].name === username && DB.users[userIDs[i]].isActive === true) {
 				var match = {
 					userID: DB.users[userIDs[i]].userID,
 					name: DB.users[userIDs[i]].name,
