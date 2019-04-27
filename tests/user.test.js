@@ -45,7 +45,7 @@ describe('User', function() {
 		expect(kingsley.readUser('user-2')).toBeDefined();
 	});
 
-	it('should query the database for a user using the userID and throw an error if the user is NOT found', function() {
+	it('should query the database for a user using the userID and throw an error if the userID is NOT found', function() {
 		var kingsley = new User('Kingsley', 'kingsley@mail.com', '1961');
 		expect(function() {
 			kingsley.readUser('user-20000');
@@ -57,6 +57,16 @@ describe('User', function() {
 		DB.users[king.userID].isActive = false;
 		expect(function() {
 			king.readUser('user-3');
+		}).toThrowError();
+	});
+
+	it('should query the database for a user using the userID and throw an error if the user with the userID has been set to isActive: false ', function() {
+		var king1 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		var king2 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		DB.users[king1.userID].isActive = false;
+
+		expect(function() {
+			king2.readUser(king1.userID);
 		}).toThrowError();
 	});
 });
