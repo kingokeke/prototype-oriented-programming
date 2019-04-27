@@ -49,6 +49,8 @@ var User = (function() {
 	User.prototype.searchUsername = function(username) {
 		var userIDs = Object.keys(DB.users);
 		var matches = [];
+
+		console.log('Querying the database for users with username: ' + username);
 		for (var i = 0; i < userIDs.length; i++) {
 			if (DB.users[userIDs[i]].name === username) {
 				var match = {
@@ -60,6 +62,13 @@ var User = (function() {
 				matches[matches.length] = match;
 			}
 		}
+
+		if (matches.length === 0) {
+			console.log('No user found with username: ' + username + '. Exiting...');
+			throw new Error();
+		}
+
+		console.log(matches.length + ' user(s) found with username: ' + username + '. Retrieving details...');
 		console.log(matches);
 		return matches;
 	};
