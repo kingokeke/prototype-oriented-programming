@@ -94,4 +94,11 @@ describe('User.prototype.searchUsername', function() {
 			king5.searchUsername('Kingsley');
 		}).toThrowError();
 	});
+
+	it('should throw an error if another data type other than strings is passed in as an argument', function() {
+		var king6 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(function() {
+			king6.searchUsername({name: 'Kingsley'});
+		}).toThrowError();
+	});
 });
