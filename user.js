@@ -46,6 +46,10 @@ var User = (function() {
 		return result;
 	};
 
+	User.prototype.updateUserDetails = function() {
+		return 'No contents yet';
+	};
+
 	User.prototype.searchUsername = function(username) {
 		if (DB.users[this.userID].isActive === false) {
 			console.log('Your account has been disabled. Please contact an admin for further assistance.');
