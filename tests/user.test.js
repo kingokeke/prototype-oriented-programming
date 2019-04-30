@@ -74,6 +74,13 @@ describe('User.prototype.readUser', function() {
 	});
 });
 
+describe('User.prototype.updateUserDetails', function() {
+	it('should exist', function() {
+		var kingsman1 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(kingsman1.updateUserDetails({name: 'Kingsley'})).toBeDefined();
+	});
+});
+
 describe('User.prototype.searchUsername', function() {
 	it('should search the DB for users whose username match the search query and return all matches if the username is found', function() {
 		var king3 = new User('Kingsley', 'kingsley@mail.com', '1961');
