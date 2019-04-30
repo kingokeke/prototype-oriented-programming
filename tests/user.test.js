@@ -3,6 +3,7 @@
 var DB = require('../db');
 var User = require('../user');
 
+//  TESTS FOR USER CONSTRUCTOR FUNCTION
 describe('User', function() {
 	it('should instantiate a user object', function() {
 		expect(new User('Kingsley', 'kingsley@mail.com', '1961')).toBeDefined();
@@ -41,6 +42,7 @@ describe('User', function() {
 	});
 });
 
+//  TESTS FOR READ USER METHOD
 describe('User.prototype.readUser', function() {
 	it('should query the database for a user using the userID and return the user details if the user is found', function() {
 		var kingsley = new User('Kingsley', 'kingsley@mail.com', '1961');
@@ -74,13 +76,22 @@ describe('User.prototype.readUser', function() {
 	});
 });
 
+//  TESTS FOR UPDATE USER DETAILS METHOD
 describe('User.prototype.updateUserDetails', function() {
 	it('should exist', function() {
 		var kingsman1 = new User('Kingsley', 'kingsley@mail.com', '1961');
 		expect(kingsman1.updateUserDetails({name: 'Kingsley'})).toBeDefined();
 	});
+
+	it('should accept only one object as an argument', function() {
+		var kingsman2 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(kingsman2.updateUserDetails('name', 'David')).toThrowError(
+			'Invalid parameters supplied. Only one object is allowed as a parameter'
+		);
+	});
 });
 
+//  TESTS FOR SEARCH USERNAME METHOD
 describe('User.prototype.searchUsername', function() {
 	it('should search the DB for users whose username match the search query and return all matches if the username is found', function() {
 		var king3 = new User('Kingsley', 'kingsley@mail.com', '1961');
