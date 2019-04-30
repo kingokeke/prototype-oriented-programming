@@ -83,11 +83,16 @@ describe('User.prototype.updateUserDetails', function() {
 		expect(kingsman1.updateUserDetails({name: 'Kingsley'})).toBeDefined();
 	});
 
-	it('should accept only one object as an argument', function() {
+	it('should accept only objects as an argument', function() {
 		var kingsman2 = new User('Kingsley', 'kingsley@mail.com', '1961');
-		expect(kingsman2.updateUserDetails('name', 'David')).toThrowError(
-			'Invalid parameters supplied. Only one object is allowed as a parameter'
-		);
+		expect(kingsman2.updateUserDetails({name: 'Kingsley'})).toBeDefined();
+		expect(function() {
+			kingsman2.updateUserDetails('name', 'David');
+		}).toThrowError('Invalid parameter supplied. Only one object is allowed as a parameter.');
+
+		expect(function() {
+			kingsman2.updateUserDetails(['name', 'David']);
+		}).toThrowError('Invalid parameter supplied. Only one object is allowed as a parameter.');
 	});
 });
 
