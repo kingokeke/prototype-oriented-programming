@@ -52,6 +52,10 @@ var User = (function() {
 			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
 		}
 
+		if (typeof username !== 'string') {
+			throw new Error('Invalid parameter supplied. Only strings are allowed as parameters.');
+		}
+
 		var userIDs = Object.keys(DB.users);
 		var matches = [];
 

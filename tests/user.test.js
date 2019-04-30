@@ -99,6 +99,6 @@ describe('User.prototype.searchUsername', function() {
 		var king6 = new User('Kingsley', 'kingsley@mail.com', '1961');
 		expect(function() {
 			king6.searchUsername({name: 'Kingsley'});
-		}).toThrowError();
+		}).toThrowError('Invalid parameter supplied. Only strings are allowed as parameters.');
 	});
 });
