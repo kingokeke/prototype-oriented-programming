@@ -47,7 +47,7 @@ var User = (function() {
 	};
 
 	User.prototype.updateUserDetails = function(Object_userDetails) {
-		if (typeof Object_userDetails !== 'object' || Array.isArray(Object_userDetails)) {
+		if (typeof Object_userDetails !== 'object' || Array.isArray(Object_userDetails) || arguments.length !== 1) {
 			throw new Error('Invalid parameter supplied. Only one object is allowed as a parameter.');
 		}
 		return 'No contents yet';
