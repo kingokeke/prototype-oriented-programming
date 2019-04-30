@@ -102,6 +102,15 @@ describe('User.prototype.updateUserDetails', function() {
 			kingsman2.updateUserDetails({name: 'Kingsman'}, {email: 'kingsman@mail.com'});
 		}).toThrowError('Invalid parameter supplied. Only one object is allowed as a parameter.');
 	});
+
+	it('should return an object', function() {
+		var kingsman2 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(kingsman2.updateUserDetails({name: 'Kingsman'})).toEqual({
+			name: 'Kingsman',
+			email: 'kingsley@mail.com',
+			password: '1961',
+		});
+	});
 });
 
 //  TESTS FOR SEARCH USERNAME METHOD
