@@ -103,12 +103,14 @@ describe('User.prototype.updateUserDetails', function() {
 		}).toThrowError('Invalid parameter supplied. Only one object is allowed as a parameter.');
 	});
 
-	it('should return an object', function() {
+	it('should return an object containing the updated user details', function() {
 		var kingsman2 = new User('Kingsley', 'kingsley@mail.com', '1961');
 		expect(kingsman2.updateUserDetails({name: 'Kingsman'})).toEqual({
+			userID: kingsman2.userID,
 			name: 'Kingsman',
 			email: 'kingsley@mail.com',
 			password: '1961',
+			isAdmin: false,
 		});
 	});
 });

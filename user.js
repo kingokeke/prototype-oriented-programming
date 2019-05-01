@@ -50,7 +50,22 @@ var User = (function() {
 		if (typeof Object_userDetails !== 'object' || Array.isArray(Object_userDetails) || arguments.length !== 1) {
 			throw new Error('Invalid parameter supplied. Only one object is allowed as a parameter.');
 		}
-		return 'No contents yet';
+
+		var details = Object.keys(Object_userDetails);
+		for (var i = 0; i < details.length; i++) {
+			if (!Object_userDetails.hasOwnProperty(details[i])) continue;
+			DB.users[this.userID][details[i]] = Object_userDetails[details[i]];
+		}
+
+		var updatedUserDetails = {
+			userID: DB.users[this.userID].userID,
+			name: DB.users[this.userID].name,
+			email: DB.users[this.userID].email,
+			password: DB.users[this.userID].password,
+			isAdmin: DB.users[this.userID].isAdmin,
+		};
+
+		return updatedUserDetails;
 	};
 
 	User.prototype.searchUsername = function(username) {
