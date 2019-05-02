@@ -45,4 +45,13 @@ describe('Admin.prototype.readAllUsers', function() {
 		var abel = new Admin('Abel', 'abel@mail.com', '1234');
 		expect(abel.readAllUsers()).toBeDefined();
 	});
+
+	it('should not allow deleted users to access readAllUsers method', function() {
+		var alfred = new Admin('Alfred', 'alfred@mail.com', '1961');
+		DB.users[alfred.userID].isActive = false;
+
+		expect(function() {
+			alfred.readAllUsers();
+		}).toThrowError();
+	});
 });
