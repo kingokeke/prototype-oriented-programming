@@ -12,4 +12,9 @@ describe('Admin constructor', function() {
 	it('should inherit its prototype from User', function() {
 		expect(Admin.prototype).toBeInstanceOf(User);
 	});
+
+	it('should inherit properties from User', function() {
+		var adrian = new Admin('Adrian', 'adrian@mail.com', '1234');
+		expect(adrian).toHaveProperty('name');
+	});
 });
