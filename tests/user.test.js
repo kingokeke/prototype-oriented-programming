@@ -97,21 +97,29 @@ describe('User.prototype.updateUserDetails', function() {
 	});
 
 	it('should have only one argument', function() {
-		var kingsman2 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		var kingsman3 = new User('Kingsley', 'kingsley@mail.com', '1961');
 		expect(function() {
-			kingsman2.updateUserDetails({name: 'Kingsman'}, {email: 'kingsman@mail.com'});
+			kingsman3.updateUserDetails({name: 'Kingsman'}, {email: 'kingsman@mail.com'});
 		}).toThrowError('Invalid parameter supplied. Only one object is allowed as a parameter.');
 	});
 
 	it('should return an object containing the updated user details', function() {
-		var kingsman2 = new User('Kingsley', 'kingsley@mail.com', '1961');
-		expect(kingsman2.updateUserDetails({name: 'Kingsman'})).toEqual({
-			userID: kingsman2.userID,
+		var kingsman4 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(kingsman4.updateUserDetails({name: 'Kingsman'})).toEqual({
+			userID: kingsman4.userID,
 			name: 'Kingsman',
 			email: 'kingsley@mail.com',
 			password: '1961',
 			isAdmin: false,
 		});
+	});
+
+	it('should not allow deleted users to access readUser method', function() {
+		var kingsman5 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		DB.users[kingsman5.userID].isActive = false;
+		expect(function() {
+			kingsman5.updateUserDetails({name: 'Kingsman'});
+		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
 	});
 });
 
