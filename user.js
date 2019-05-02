@@ -47,6 +47,11 @@ var User = (function() {
 	};
 
 	User.prototype.updateUserDetails = function(Object_userDetails) {
+		if (DB.users[this.userID].isActive === false) {
+			console.log('Your account has been disabled. Please contact an admin for further assistance.');
+			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
+		}
+
 		if (typeof Object_userDetails !== 'object' || Array.isArray(Object_userDetails) || arguments.length !== 1) {
 			throw new Error('Invalid parameter supplied. Only one object is allowed as a parameter.');
 		}
