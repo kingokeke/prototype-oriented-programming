@@ -26,4 +26,9 @@ describe('Admin constructor', function() {
 		expect(austin).toHaveProperty('updateUserDetails');
 		expect(austin).toHaveProperty('searchUsername');
 	});
+
+	it('should return an admin object that has its isAdmin property that is set to true', function() {
+		var anselm = new Admin('Anselm', 'anselm@mail.com', '1234');
+		expect(anselm.isAdmin).toBeTruthy();
+	});
 });
