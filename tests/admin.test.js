@@ -6,7 +6,10 @@ var Admin = require('../admin');
 
 describe('Admin constructor', function() {
 	it('should be defined', function() {
-		// var adam = new Admin('Adam', 'adam@mail.com', '1234');
 		expect(new Admin('Adam', 'adam@mail.com', '1234')).toBeDefined();
+	});
+
+	it('should inherit its prototype from User', function() {
+		expect(Admin.prototype).toBeInstanceOf(User);
 	});
 });
