@@ -10,7 +10,10 @@ var Admin = (function() {
 
 	Admin.prototype = Object.create(User.prototype, {constructor: {value: Admin}});
 
-	Admin.prototype.readAllUsers = function() {};
+	Admin.prototype.readAllUsers = function() {
+		console.log(DB.users);
+		return DB.users;
+	};
 	Admin.prototype.deleteUser = function() {};
 	Admin.prototype.deleteAllUsers = function() {};
 	return Admin;
