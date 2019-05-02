@@ -28,7 +28,11 @@ describe('Admin constructor', function() {
 	});
 
 	it('should return an admin object that has its isAdmin property that is set to true', function() {
+		var ans = new User('Ans', 'ans@mail.com', '1234');
+		console.log(ans);
 		var anselm = new Admin('Anselm', 'anselm@mail.com', '1234');
+		console.log(anselm);
 		expect(anselm.isAdmin).toBeTruthy();
+		console.log(DB);
 	});
 });
