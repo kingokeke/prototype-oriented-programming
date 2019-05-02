@@ -46,12 +46,12 @@ describe('Admin.prototype.readAllUsers', function() {
 		expect(abel.readAllUsers()).toBeDefined();
 	});
 
-	it('should not allow deleted users to access readAllUsers method', function() {
+	it('should not allow deleted admins to access readAllUsers method', function() {
 		var alfred = new Admin('Alfred', 'alfred@mail.com', '1961');
 		DB.users[alfred.userID].isActive = false;
 
 		expect(function() {
 			alfred.readAllUsers();
-		}).toThrowError();
+		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
 	});
 });

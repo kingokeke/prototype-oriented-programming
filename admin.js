@@ -11,6 +11,11 @@ var Admin = (function() {
 	Admin.prototype = Object.create(User.prototype, {constructor: {value: Admin}});
 
 	Admin.prototype.readAllUsers = function() {
+		if (DB.users[this.userID].isActive === false) {
+			console.log('Your account has been disabled. Please contact an admin for further assistance.');
+			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
+		}
+
 		console.log(DB.users);
 		return DB.users;
 	};
