@@ -16,5 +16,14 @@ describe('Admin constructor', function() {
 	it('should inherit properties from User', function() {
 		var adrian = new Admin('Adrian', 'adrian@mail.com', '1234');
 		expect(adrian).toHaveProperty('name');
+		expect(adrian).toHaveProperty('email');
+		expect(adrian).toHaveProperty('password');
+	});
+
+	it('should inherit methods from User', function() {
+		var austin = new Admin('Austin', 'austin@mail.com', '1234');
+		expect(austin).toHaveProperty('readUser');
+		expect(austin).toHaveProperty('updateUserDetails');
+		expect(austin).toHaveProperty('searchUsername');
 	});
 });
