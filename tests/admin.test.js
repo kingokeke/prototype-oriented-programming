@@ -40,3 +40,10 @@ describe('Admin constructor', function() {
 		expect(austin).toHaveProperty('deleteAllUsers');
 	});
 });
+
+describe('Admin.prototype.readAllUsers', function() {
+	it('should be defined', function() {
+		var abel = new Admin('Abel', 'abel@mail.com', '1234');
+		expect(abel.readAllUsers()).toBeDefined();
+	});
+});
