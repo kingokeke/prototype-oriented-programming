@@ -70,4 +70,14 @@ describe('Admin.prototype.deleteUser', function() {
 			alfonso.deleteUser('user-2');
 		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
 	});
+
+	it('should throw an error if the user to be deleted has been set to isActive: false already', function() {
+		var anselm = new Admin('Anselm', 'anselm@mail.com', '1961');
+		var anthony = new Admin('Anthony', 'anthony@mail.com', '1961');
+		DB.users[anselm.userID].isActive = false;
+
+		expect(function() {
+			anthony.deleteUser(anselm.userID);
+		}).toThrowError('The user with user ID: ' + anselm.userID + ' was not found in the database.');
+	});
 });
