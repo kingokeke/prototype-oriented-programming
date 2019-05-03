@@ -71,6 +71,14 @@ describe('Admin.prototype.deleteUser', function() {
 		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
 	});
 
+	it('should throw an error if the user to be deleted is not in the database at all', function() {
+		var testID = 'user-20000';
+		var augustine = new Admin('Augustine', 'augustine@mail.com', '1961');
+		expect(function() {
+			augustine.deleteUser(testID);
+		}).toThrowError('The user with user ID: ' + testID + ' does not exist in the database.');
+	});
+
 	it('should throw an error if the user to be deleted has been set to isActive: false already', function() {
 		var anselm = new Admin('Anselm', 'anselm@mail.com', '1961');
 		var anthony = new Admin('Anthony', 'anthony@mail.com', '1961');
@@ -78,6 +86,6 @@ describe('Admin.prototype.deleteUser', function() {
 
 		expect(function() {
 			anthony.deleteUser(anselm.userID);
-		}).toThrowError('The user with user ID: ' + anselm.userID + ' was not found in the database.');
+		}).toThrowError('The user with user ID: ' + anselm.userID + ' has been deleted already.');
 	});
 });
