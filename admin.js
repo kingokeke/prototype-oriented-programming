@@ -25,6 +25,11 @@ var Admin = (function() {
 			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
 		}
 
+		if (DB.users[String_userID].isActive === false) {
+			console.log('The user with user ID: ' + String_userID + ' was not found in the database.');
+			throw new Error('The user with user ID: ' + String_userID + ' was not found in the database.');
+		}
+
 		if (DB.users.hasOwnProperty(String_userID)) {
 			DB.users[String_userID].isActive = false;
 			console.log(DB.users[String_userID]);
