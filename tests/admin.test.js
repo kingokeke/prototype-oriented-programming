@@ -61,4 +61,13 @@ describe('Admin.prototype.deleteUser', function() {
 		var alex = new Admin('Alex', 'alex@mail.com', '1961');
 		expect(alex.deleteUser('user-1')).toHaveProperty('isActive', false);
 	});
+
+	it('should not allow deleted admins to access readAllUsers method', function() {
+		var alfonso = new Admin('Alfonso', 'alfonso@mail.com', '1961');
+		DB.users[alfonso.userID].isActive = false;
+
+		expect(function() {
+			alfonso.deleteUser('user-2');
+		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
+	});
 });
