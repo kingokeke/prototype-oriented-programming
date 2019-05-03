@@ -19,7 +19,12 @@ var Admin = (function() {
 		console.log(DB.users);
 		return DB.users;
 	};
-	Admin.prototype.deleteUser = function() {};
+	Admin.prototype.deleteUser = function(String_userID) {
+		if (DB.users.hasOwnProperty(String_userID)) {
+			DB.users[String_userID].isActive = false;
+			return DB.users[String_userID];
+		}
+	};
 	Admin.prototype.deleteAllUsers = function() {};
 	return Admin;
 })();
