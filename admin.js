@@ -49,7 +49,14 @@ var Admin = (function() {
 		return DB.users[String_userID];
 	};
 
-	Admin.prototype.deleteAllUsers = function() {};
+	Admin.prototype.deleteAllUsers = function() {
+		var userIDs = Object.keys(DB.users);
+		for (var i = 0; i < userIDs.length; i++) {
+			DB.users[userIDs[i]].isActive = false;
+		}
+		console.log(DB.users);
+		return DB.users;
+	};
 	return Admin;
 })();
 
