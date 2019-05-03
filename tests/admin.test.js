@@ -57,16 +57,8 @@ describe('Admin.prototype.readAllUsers', function() {
 });
 
 describe('Admin.prototype.deleteUser', function() {
-	it('should return the user details of the deleted user', function() {
+	it('should set the isActive property of the user to false', function() {
 		var alex = new Admin('Alex', 'alex@mail.com', '1961');
-
-		expect(alex.deleteUser('user-1')).toEqual({
-			userID: 'user-1',
-			name: 'Adam',
-			email: 'adam@mail.com',
-			password: '1234',
-			isAdmin: true,
-			isActive: false,
-		});
+		expect(alex.deleteUser('user-1')).toHaveProperty('isActive', false);
 	});
 });

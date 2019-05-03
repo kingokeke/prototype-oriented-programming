@@ -22,6 +22,7 @@ var Admin = (function() {
 	Admin.prototype.deleteUser = function(String_userID) {
 		if (DB.users.hasOwnProperty(String_userID)) {
 			DB.users[String_userID].isActive = false;
+			console.log(DB.users[String_userID]);
 			return DB.users[String_userID];
 		}
 	};
