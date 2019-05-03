@@ -55,3 +55,18 @@ describe('Admin.prototype.readAllUsers', function() {
 		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
 	});
 });
+
+describe('Admin.prototype.deleteUser', function() {
+	it('should return the user details of the deleted user', function() {
+		var alex = new Admin('Alex', 'alex@mail.com', '1961');
+
+		expect(alex.deleteUser('user-1')).toEqual({
+			userID: 'user-1',
+			name: 'Adam',
+			email: 'adam@mail.com',
+			password: '1234',
+			isAdmin: true,
+			isActive: false,
+		});
+	});
+});
