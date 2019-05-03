@@ -89,3 +89,11 @@ describe('Admin.prototype.deleteUser', function() {
 		}).toThrowError('The user with user ID: ' + anselm.userID + ' has been deleted already.');
 	});
 });
+
+describe('Admin.prototype.deleteAllUsers', function() {
+	it('should set the isActive property of all users to false', function() {
+		var arnold = new Admin('Arnold', 'arnold@mail.com', '1961');
+		var deleteMessage = arnold.deleteAllUsers();
+		expect(deleteMessage[arnold.userID]).toHaveProperty('isActive', false);
+	});
+});
