@@ -100,4 +100,14 @@ describe('Admin.prototype.deleteAllUsers', function() {
 		expect(deleteMessage[attila.userID]).toHaveProperty('isActive', false);
 		expect(deleteMessage[axel.userID]).toHaveProperty('isActive', false);
 	});
+
+	it('should not allow deleted admins to access readAllUsers method', function() {
+		var aquinas = new Admin('Aquinas', 'aquinas@mail.com', '1961');
+		var arthur = new Admin('Arthur', 'arthur@mail.com', '1961');
+		aquinas.deleteAllUsers();
+
+		expect(function() {
+			arthur.deleteAllUsers();
+		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
+	});
 });
