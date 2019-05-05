@@ -16,9 +16,18 @@ describe('Order constructor', function() {
 		expect(DB.orderCount).toBe(initialOrderCount + 1);
 	});
 
-	it('should populate the database', function() {
+	it('should save the order details to database', function() {
 		var order3 = new Order('user-1', ['tea', 'bread', 'butter']);
-		console.log(order3);
 		expect(DB.orders).toHaveProperty(order3.orderID);
+	});
+
+	it('should persist an object with userID, orderID, products, date and time as keys', function() {
+		var order4 = new Order('user-1', ['tea', 'bread', 'butter']);
+
+		expect(DB.orders[order4.orderID]).toHaveProperty('orderID');
+		expect(DB.orders[order4.orderID]).toHaveProperty('userID');
+		expect(DB.orders[order4.orderID]).toHaveProperty('time');
+		expect(DB.orders[order4.orderID]).toHaveProperty('date');
+		expect(DB.orders[order4.orderID]).toHaveProperty('products');
 	});
 });
