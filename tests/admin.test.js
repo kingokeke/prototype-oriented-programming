@@ -93,7 +93,11 @@ describe('Admin.prototype.deleteUser', function() {
 describe('Admin.prototype.deleteAllUsers', function() {
 	it('should set the isActive property of all users to false', function() {
 		var arnold = new Admin('Arnold', 'arnold@mail.com', '1961');
+		var attila = new Admin('Attila', 'attila@mail.com', '1961');
+		var axel = new Admin('Axel', 'axel@mail.com', '1961');
 		var deleteMessage = arnold.deleteAllUsers();
 		expect(deleteMessage[arnold.userID]).toHaveProperty('isActive', false);
+		expect(deleteMessage[attila.userID]).toHaveProperty('isActive', false);
+		expect(deleteMessage[axel.userID]).toHaveProperty('isActive', false);
 	});
 });
