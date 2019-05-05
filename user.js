@@ -58,7 +58,7 @@ var User = (function() {
 
 		var details = Object.keys(Object_userDetails);
 		for (var i = 0; i < details.length; i++) {
-			if (!Object_userDetails.hasOwnProperty(details[i])) continue;
+			if (!DB.users[this.userID].hasOwnProperty(details[i])) continue;
 			DB.users[this.userID][details[i]] = Object_userDetails[details[i]];
 		}
 
