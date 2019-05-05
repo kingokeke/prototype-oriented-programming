@@ -19,6 +19,7 @@ var Admin = (function() {
 			throw new Error(errorMessage);
 		}
 
+		console.log('Retrieving all users from the database...');
 		console.log(DB.users);
 		return DB.users;
 	};
@@ -44,7 +45,10 @@ var Admin = (function() {
 			throw new Error(errorMessage);
 		}
 
+		console.log('Deleting user with user ID: ' + String_userID);
 		DB.users[String_userID].isActive = false;
+
+		console.log('User with user ID: ' + String_userID + ' has been deleted. Retrieving user details...');
 		console.log(DB.users[String_userID]);
 		return DB.users[String_userID];
 	};
@@ -58,11 +62,13 @@ var Admin = (function() {
 			throw new Error(errorMessage);
 		}
 
+		console.log('Deleting all users...');
 		var userIDs = Object.keys(DB.users);
 		for (var i = 0; i < userIDs.length; i++) {
 			DB.users[userIDs[i]].isActive = false;
 		}
 
+		console.log('All users deleted. Retrieving user details for all users...');
 		console.log(DB.users);
 		return DB.users;
 	};
