@@ -50,10 +50,19 @@ var Admin = (function() {
 	};
 
 	Admin.prototype.deleteAllUsers = function() {
+		var errorMessage;
+
+		if (DB.users[this.userID].isActive === false) {
+			errorMessage = 'Your account has been disabled. Please contact an admin for further assistance.';
+			console.log(errorMessage);
+			throw new Error(errorMessage);
+		}
+
 		var userIDs = Object.keys(DB.users);
 		for (var i = 0; i < userIDs.length; i++) {
 			DB.users[userIDs[i]].isActive = false;
 		}
+
 		console.log(DB.users);
 		return DB.users;
 	};
