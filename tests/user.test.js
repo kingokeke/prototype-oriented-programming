@@ -152,3 +152,10 @@ describe('User.prototype.searchUsername', function() {
 		}).toThrowError('Invalid parameter supplied. Only strings are allowed as parameters.');
 	});
 });
+
+describe('User.prototype.createNewOrder', function() {
+	it('should exist', function() {
+		var king7 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(king7).toHaveProperty('createNewOrder');
+	});
+});

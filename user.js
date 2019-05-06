@@ -108,6 +108,7 @@ var User = (function() {
 		console.log(matches);
 		return matches;
 	};
+
 	return User;
 })();
 

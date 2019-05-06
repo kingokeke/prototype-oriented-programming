@@ -23,7 +23,6 @@ describe('Order constructor', function() {
 
 	it('should persist an object with userID, orderID, products, date and time as keys', function() {
 		var order4 = new Order('user-1', ['tea', 'bread', 'butter']);
-
 		expect(DB.orders[order4.orderID]).toHaveProperty('orderID');
 		expect(DB.orders[order4.orderID]).toHaveProperty('userID');
 		expect(DB.orders[order4.orderID]).toHaveProperty('time');
