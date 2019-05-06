@@ -109,6 +109,9 @@ var User = (function() {
 		return matches;
 	};
 
+	User.prototype.createNewOrder = function(Array_products) {
+		var newOrder = new Order(this.userID, Array_products);
+	};
 	return User;
 })();
 
