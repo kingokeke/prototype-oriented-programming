@@ -158,4 +158,10 @@ describe('User.prototype.createNewOrder', function() {
 		var king7 = new User('Kingsley', 'kingsley@mail.com', '1961');
 		expect(king7).toHaveProperty('createNewOrder');
 	});
+
+	it('should return an object containing the order details', function() {
+		var king8 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		king8.createNewOrder(['soap', 'sponge', 'cream']);
+		expect(king8).toHaveProperty('createNewOrder');
+	});
 });

@@ -1,5 +1,6 @@
 var User = (function() {
 	var DB = require('./db');
+	var Order = require('./order');
 	function User(name, email, password) {
 		if (typeof name !== 'string' || typeof email !== 'string' || typeof password !== 'string') {
 			throw new Error('Invalid arguments. Please enter only strings');
@@ -111,6 +112,7 @@ var User = (function() {
 
 	User.prototype.createNewOrder = function(Array_products) {
 		var newOrder = new Order(this.userID, Array_products);
+		return newOrder;
 	};
 	return User;
 })();
