@@ -191,4 +191,14 @@ describe('User.prototype.createNewOrder', function() {
 			king9.createNewOrder('tea', 'coffee', {'1': 'sugar'});
 		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
 	});
+
+	it('should return an object with the order details', function() {
+		var king10 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		var order2 = king10.createNewOrder('soap', 'sponge', 'cream');
+		expect(order2).toHaveProperty('userID');
+		expect(order2).toHaveProperty('orderID');
+		expect(order2).toHaveProperty('time');
+		expect(order2).toHaveProperty('date');
+		expect(order2).toHaveProperty('products');
+	});
 });
