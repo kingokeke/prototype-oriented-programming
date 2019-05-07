@@ -73,7 +73,10 @@ var Admin = (function() {
 		return DB.users;
 	};
 
-	Admin.prototype.readAllOrders = function() {};
+	Admin.prototype.readAllOrders = function() {
+		return 'Dummy answer';
+	};
+
 	return Admin;
 })();
 
