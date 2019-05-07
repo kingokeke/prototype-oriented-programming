@@ -1,6 +1,7 @@
 var Admin = (function() {
 	var DB = require('./db');
 	var User = require('./user');
+	var Order = require('./order');
 
 	function Admin(String_name, String_email, String_password) {
 		User.call(this, String_name, String_email, String_password);
@@ -82,7 +83,7 @@ var Admin = (function() {
 			throw new Error(errorMessage);
 		}
 
-		var allOrders = DB.orders;
+		var allOrders = Order.readAllOrders();
 
 		console.log(allOrders);
 		return allOrders;
