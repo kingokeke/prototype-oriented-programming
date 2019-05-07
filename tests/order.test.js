@@ -83,6 +83,6 @@ describe('Order.readOrder', function() {
 	it('should take ONLY strings as parameters', function() {
 		expect(function() {
 			Order.readOrder('order-1', 'order-2');
-		}).toThrowError('Invalid parameters supplied. Please supply just ONE parameter.');
+		}).toThrowError('Invalid parameters supplied. Please supply just ONE string parameter.');
 	});
 });
