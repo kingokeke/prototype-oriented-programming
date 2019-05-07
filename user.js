@@ -116,11 +116,12 @@ var User = (function() {
 			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
 		}
 
-		var orderedProducts = arguments;
-		for (var i = 0; i < orderedProducts.length; i++) {
-			if (typeof orderedProducts[i] !== 'string') {
+		var orderedProducts = [];
+		for (var i = 0; i < arguments.length; i++) {
+			if (typeof arguments[i] !== 'string') {
 				throw new Error('Invalid parameters supplied. Parameters must be strings only.');
 			}
+			orderedProducts.push(arguments[i]);
 		}
 		var newOrder = new Order(this.userID, orderedProducts);
 
