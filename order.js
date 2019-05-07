@@ -31,8 +31,8 @@ var Order = (function() {
 		if (arguments.length !== 1) {
 			throw new Error('Invalid parameters supplied. Please supply just ONE string parameter.');
 		}
-
-		return {};
+		var match = DB.orders[String_orderID];
+		return match;
 	};
 
 	return Order;
