@@ -130,4 +130,10 @@ describe('Admin.prototype.readAllOrders', function() {
 		bernard.createNewOrder('soap', 'sponge', 'cream');
 		expect(typeof bernard.readAllOrders()).toBe('object');
 	});
+
+	it('should return an object that is the exact match of DB.orders', function() {
+		var benjamin = new Admin('Benjamin', 'bernard@mail.com', '1961');
+		benjamin.createNewOrder('soap', 'sponge', 'cream');
+		expect(benjamin.readAllOrders()).toEqual(DB.orders);
+	});
 });
