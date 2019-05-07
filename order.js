@@ -23,7 +23,9 @@ var Order = (function() {
 		return DB.orders;
 	};
 
-	Order.readOrder = function(String_orderID) {};
+	Order.readOrder = function(String_orderID) {
+		return {};
+	};
 
 	return Order;
 })();
