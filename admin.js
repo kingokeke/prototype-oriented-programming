@@ -72,6 +72,8 @@ var Admin = (function() {
 		console.log(DB.users);
 		return DB.users;
 	};
+
+	Admin.prototype.readAllOrders = function() {};
 	return Admin;
 })();
 
