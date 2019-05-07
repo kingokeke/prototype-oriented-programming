@@ -110,8 +110,14 @@ var User = (function() {
 		return matches;
 	};
 
-	User.prototype.createNewOrder = function(Array_products) {
-		var newOrder = new Order(this.userID, Array_products);
+	User.prototype.createNewOrder = function(Strings_products) {
+		var products = arguments;
+		for (var i = 0; i < products.length; i++) {
+			if (typeof products[i] !== 'string') {
+				throw new Error('Invalid parameters supplied. Parameters must be strings only.');
+			}
+		}
+		var newOrder = new Order(this.userID, products);
 		return newOrder;
 	};
 	return User;
