@@ -111,6 +111,11 @@ var User = (function() {
 	};
 
 	User.prototype.createNewOrder = function(Strings_products) {
+		if (DB.users[this.userID].isActive === false) {
+			console.log('Your account has been disabled. Please contact an admin for further assistance.');
+			throw new Error('Your account has been disabled. Please contact an admin for further assistance.');
+		}
+
 		var orderedProducts = arguments;
 		for (var i = 0; i < orderedProducts.length; i++) {
 			if (typeof orderedProducts[i] !== 'string') {
