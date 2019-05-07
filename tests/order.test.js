@@ -30,3 +30,9 @@ describe('Order constructor', function() {
 		expect(DB.orders[order4.orderID]).toHaveProperty('products');
 	});
 });
+
+describe('Order.readAllOrders', function() {
+	it('should exist', function() {
+		expect(Order).toHaveProperty('readAllOrders');
+	});
+});

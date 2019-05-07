@@ -18,6 +18,7 @@ var Order = (function() {
 
 		DB.orderCount++;
 	}
+
 	return Order;
 })();
 
