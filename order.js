@@ -28,9 +28,10 @@ var Order = (function() {
 			throw new Error('Invalid parameters supplied. Parameter must be a strings only.');
 		}
 
-		if (arguments.length > 1) {
+		if (arguments.length !== 1) {
 			throw new Error('Invalid parameters supplied. Please supply just ONE string parameter.');
 		}
+
 		return {};
 	};
 

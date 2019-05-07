@@ -85,4 +85,12 @@ describe('Order.readOrder', function() {
 			Order.readOrder('order-1', 'order-2');
 		}).toThrowError('Invalid parameters supplied. Please supply just ONE string parameter.');
 	});
+
+	it('should return an object containing the order details', function() {
+		expect(Order.readOrder('order-1')).toHaveProperty('userID');
+		expect(Order.readOrder('order-1')).toHaveProperty('orderID');
+		expect(Order.readOrder('order-1')).toHaveProperty('date');
+		expect(Order.readOrder('order-1')).toHaveProperty('time');
+		expect(Order.readOrder('order-1')).toHaveProperty('products');
+	});
 });
