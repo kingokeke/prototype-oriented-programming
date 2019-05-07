@@ -35,4 +35,8 @@ describe('Order.readAllOrders', function() {
 	it('should exist', function() {
 		expect(Order).toHaveProperty('readAllOrders');
 	});
+
+	it('should return an answer that is not undefined', function() {
+		expect(Order.readAllOrders()).toBeDefined();
+	});
 });
