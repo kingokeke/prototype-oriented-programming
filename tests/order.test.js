@@ -53,4 +53,30 @@ describe('Order.readOrder', function() {
 	it('should return an answer that is not undefined', function() {
 		expect(Order.readOrder('order-1')).toBeDefined();
 	});
+
+	it('should take ONLY strings as parameters', function() {
+		expect(function() {
+			Order.readOrder(['sugar']);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			Order.readOrder(true);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			Order.readOrder(300);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			Order.readOrder(null);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			Order.readOrder(undefined);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			Order.readOrder({'1': 'sugar'});
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+	});
 });
