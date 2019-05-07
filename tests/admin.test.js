@@ -111,3 +111,10 @@ describe('Admin.prototype.deleteAllUsers', function() {
 		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
 	});
 });
+
+describe('Admin.prototype.readAllOrders', function() {
+	it('should exist', function() {
+		var barney = new Admin('Barney', 'aquinas@mail.com', '1961');
+		expect(barney).toHaveProperty('readAllOrders');
+	});
+});

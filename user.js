@@ -123,8 +123,11 @@ var User = (function() {
 			}
 		}
 		var newOrder = new Order(this.userID, orderedProducts);
+
+		console.log(newOrder);
 		return newOrder;
 	};
+
 	return User;
 })();
 
