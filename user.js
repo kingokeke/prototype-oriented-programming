@@ -111,13 +111,13 @@ var User = (function() {
 	};
 
 	User.prototype.createNewOrder = function(Strings_products) {
-		var products = arguments;
-		for (var i = 0; i < products.length; i++) {
-			if (typeof products[i] !== 'string') {
+		var orderedProducts = arguments;
+		for (var i = 0; i < orderedProducts.length; i++) {
+			if (typeof orderedProducts[i] !== 'string') {
 				throw new Error('Invalid parameters supplied. Parameters must be strings only.');
 			}
 		}
-		var newOrder = new Order(this.userID, products);
+		var newOrder = new Order(this.userID, orderedProducts);
 		return newOrder;
 	};
 	return User;
