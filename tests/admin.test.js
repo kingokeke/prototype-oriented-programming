@@ -117,4 +117,9 @@ describe('Admin.prototype.readAllOrders', function() {
 		var barney = new Admin('Barney', 'aquinas@mail.com', '1961');
 		expect(barney).toHaveProperty('readAllOrders');
 	});
+
+	it('should return a value that is not undefined', function() {
+		var baines = new Admin('Baines', 'aquinas@mail.com', '1961');
+		expect(baines.readAllOrders()).toBeDefined();
+	});
 });
