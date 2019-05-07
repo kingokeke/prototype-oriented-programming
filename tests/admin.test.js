@@ -122,4 +122,9 @@ describe('Admin.prototype.readAllOrders', function() {
 		var baines = new Admin('Baines', 'aquinas@mail.com', '1961');
 		expect(baines.readAllOrders()).toBeDefined();
 	});
+
+	it('should return an object containing all the orders', function() {
+		var baines = new Admin('Baines', 'aquinas@mail.com', '1961');
+		expect(typeof baines.readAllOrders()).toBe('object');
+	});
 });
