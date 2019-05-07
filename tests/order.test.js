@@ -49,4 +49,8 @@ describe('Order.readOrder', function() {
 	it('should exist', function() {
 		expect(Order).toHaveProperty('readOrder');
 	});
+
+	it('should return an answer that is not undefined', function() {
+		expect(Order.readOrder('order-1')).toBeDefined();
+	});
 });
