@@ -218,4 +218,11 @@ describe('User.prototype.createNewOrder', function() {
 		expect(DB.orders[order3.orderID]).toHaveProperty('date');
 		expect(DB.orders[order3.orderID]).toHaveProperty('products');
 	});
+
+	it('should increment the order counter by one', function() {
+		var oldOrderCount = DB.orderCount;
+		var king11 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		king11.createNewOrder('soap', 'sponge', 'cream');
+		expect(DB.orderCount).toBe(oldOrderCount + 1);
+	});
 });
