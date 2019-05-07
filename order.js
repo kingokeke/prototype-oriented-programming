@@ -24,6 +24,9 @@ var Order = (function() {
 	};
 
 	Order.readOrder = function(String_orderID) {
+		if (typeof String_orderID !== 'string') {
+			throw new Error('Invalid parameters supplied. Parameter must be a strings only.');
+		}
 		return {};
 	};
 

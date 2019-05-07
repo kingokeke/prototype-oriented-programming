@@ -57,26 +57,26 @@ describe('Order.readOrder', function() {
 	it('should take ONLY strings as parameters', function() {
 		expect(function() {
 			Order.readOrder(['sugar']);
-		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+		}).toThrowError('Invalid parameters supplied. Parameter must be a strings only.');
 
 		expect(function() {
 			Order.readOrder(true);
-		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+		}).toThrowError('Invalid parameters supplied. Parameter must be a strings only.');
 
 		expect(function() {
 			Order.readOrder(300);
-		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+		}).toThrowError('Invalid parameters supplied. Parameter must be a strings only.');
 
 		expect(function() {
 			Order.readOrder(null);
-		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+		}).toThrowError('Invalid parameters supplied. Parameter must be a strings only.');
 
 		expect(function() {
 			Order.readOrder(undefined);
-		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+		}).toThrowError('Invalid parameters supplied. Parameter must be a strings only.');
 
 		expect(function() {
 			Order.readOrder({'1': 'sugar'});
-		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+		}).toThrowError('Invalid parameters supplied. Parameter must be a strings only.');
 	});
 });
