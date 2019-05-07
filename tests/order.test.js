@@ -39,4 +39,8 @@ describe('Order.readAllOrders', function() {
 	it('should return an answer that is not undefined', function() {
 		expect(Order.readAllOrders()).toBeDefined();
 	});
+
+	it('should return an object containing all orders in the DB', function() {
+		expect(Order.readAllOrders()).toEqual(DB.orders);
+	});
 });

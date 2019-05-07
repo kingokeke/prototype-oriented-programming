@@ -22,6 +22,7 @@ var Order = (function() {
 	Order.readAllOrders = function() {
 		return DB.orders;
 	};
+
 	return Order;
 })();
 
