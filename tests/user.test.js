@@ -159,9 +159,36 @@ describe('User.prototype.createNewOrder', function() {
 		expect(king7).toHaveProperty('createNewOrder');
 	});
 
-	it('should return an object containing the order details', function() {
+	it('should return a result that is not undefined', function() {
 		var king8 = new User('Kingsley', 'kingsley@mail.com', '1961');
-		king8.createNewOrder(['soap', 'sponge', 'cream']);
-		expect(king8).toHaveProperty('createNewOrder');
+		var order1 = king8.createNewOrder('soap', 'sponge', 'cream');
+		expect(order1).toBeDefined();
+	});
+
+	it('should take ONLY strings as parameters', function() {
+		var king9 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		expect(function() {
+			king9.createNewOrder('tea', 'coffee', ['sugar']);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			king9.createNewOrder('tea', 'coffee', true);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			king9.createNewOrder('tea', 'coffee', 300);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			king9.createNewOrder('tea', 'coffee', null);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			king9.createNewOrder('tea', 'coffee', undefined);
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
+
+		expect(function() {
+			king9.createNewOrder('tea', 'coffee', {'1': 'sugar'});
+		}).toThrowError('Invalid parameters supplied. Parameters must be strings only.');
 	});
 });
