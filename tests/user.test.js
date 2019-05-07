@@ -225,4 +225,12 @@ describe('User.prototype.createNewOrder', function() {
 		king11.createNewOrder('soap', 'sponge', 'cream');
 		expect(DB.orderCount).toBe(oldOrderCount + 1);
 	});
+
+	it('should not allow deleted users to access readUser method', function() {
+		var king12 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		DB.users[king12.userID].isActive = false;
+		expect(function() {
+			king12.createNewOrder('soap', 'sponge', 'cream');
+		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
+	});
 });
