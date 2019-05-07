@@ -202,11 +202,11 @@ describe('User.prototype.createNewOrder', function() {
 		expect(order2).toHaveProperty('products');
 	});
 
-	// it('should return an object with the order details', function() {
-	// 	var king11 = new User('Kingsley', 'kingsley@mail.com', '1961');
-	// 	var order3 = king11.createNewOrder('soap', 'sponge', 'cream');
-	// 	expect(order3).toHaveProperty('products', ['soap', 'sponge', 'cream']);
-	// });
+	it('should return an object with the order details', function() {
+		var king11 = new User('Kingsley', 'kingsley@mail.com', '1961');
+		var order3 = king11.createNewOrder('soap', 'sponge', 'cream');
+		expect(order3).toHaveProperty('products', ['soap', 'sponge', 'cream']);
+	});
 
 	it('should persist the order details in the database', function() {
 		var king11 = new User('Kingsley', 'kingsley@mail.com', '1961');
