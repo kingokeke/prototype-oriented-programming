@@ -19,7 +19,9 @@ var Order = (function() {
 		DB.orderCount++;
 	}
 
-	Order.readAllOrders = function() {};
+	Order.readAllOrders = function() {
+		return DB.orders;
+	};
 	return Order;
 })();
 
