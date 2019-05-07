@@ -79,4 +79,10 @@ describe('Order.readOrder', function() {
 			Order.readOrder({'1': 'sugar'});
 		}).toThrowError('Invalid parameters supplied. Parameter must be a strings only.');
 	});
+
+	it('should take ONLY strings as parameters', function() {
+		expect(function() {
+			Order.readOrder('order-1', 'order-2');
+		}).toThrowError('Invalid parameters supplied. Please supply just ONE parameter.');
+	});
 });
