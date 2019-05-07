@@ -44,3 +44,9 @@ describe('Order.readAllOrders', function() {
 		expect(Order.readAllOrders()).toEqual(DB.orders);
 	});
 });
+
+describe('Order.readOrder', function() {
+	it('should exist', function() {
+		expect(Order).toHaveProperty('readOrder');
+	});
+});
