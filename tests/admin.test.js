@@ -114,17 +114,20 @@ describe('Admin.prototype.deleteAllUsers', function() {
 
 describe('Admin.prototype.readAllOrders', function() {
 	it('should exist', function() {
-		var barney = new Admin('Barney', 'aquinas@mail.com', '1961');
+		var barney = new Admin('Barney', 'barney@mail.com', '1961');
+		barney.createNewOrder('soap', 'sponge', 'cream');
 		expect(barney).toHaveProperty('readAllOrders');
 	});
 
 	it('should return a value that is not undefined', function() {
-		var baines = new Admin('Baines', 'aquinas@mail.com', '1961');
+		var baines = new Admin('Baines', 'baines@mail.com', '1961');
+		baines.createNewOrder('soap', 'sponge', 'cream');
 		expect(baines.readAllOrders()).toBeDefined();
 	});
 
 	it('should return an object containing all the orders', function() {
-		var baines = new Admin('Baines', 'aquinas@mail.com', '1961');
-		expect(typeof baines.readAllOrders()).toBe('object');
+		var bernard = new Admin('Bernard', 'bernard@mail.com', '1961');
+		bernard.createNewOrder('soap', 'sponge', 'cream');
+		expect(typeof bernard.readAllOrders()).toBe('object');
 	});
 });

@@ -74,7 +74,10 @@ var Admin = (function() {
 	};
 
 	Admin.prototype.readAllOrders = function() {
-		return 'Dummy answer';
+		var allOrders = DB.orders;
+
+		console.log(allOrders);
+		return allOrders;
 	};
 
 	return Admin;
