@@ -101,7 +101,7 @@ describe('Admin.prototype.deleteAllUsers', function() {
 		expect(deleteMessage[axel.userID]).toHaveProperty('isActive', false);
 	});
 
-	it('should not allow deleted admins to access readAllUsers method', function() {
+	it('should not allow deleted admins to access deleteAllUsers method', function() {
 		var aquinas = new Admin('Aquinas', 'aquinas@mail.com', '1961');
 		var arthur = new Admin('Arthur', 'arthur@mail.com', '1961');
 		aquinas.deleteAllUsers();
@@ -135,5 +135,15 @@ describe('Admin.prototype.readAllOrders', function() {
 		var benjamin = new Admin('Benjamin', 'bernard@mail.com', '1961');
 		benjamin.createNewOrder('soap', 'sponge', 'cream');
 		expect(benjamin.readAllOrders()).toEqual(DB.orders);
+	});
+
+	it('should not allow deleted admins to access readAllOrders method', function() {
+		var blake = new Admin('Blake', 'blake@mail.com', '1961');
+		var billy = new Admin('Billy', 'billy@mail.com', '1961');
+		billy.deleteUser(blake.userID);
+
+		expect(function() {
+			blake.readAllOrders();
+		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
 	});
 });
