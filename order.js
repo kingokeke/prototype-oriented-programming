@@ -31,6 +31,10 @@ var Order = (function() {
 		if (arguments.length !== 1) {
 			throw new Error('Invalid parameters supplied. Please supply just ONE string parameter.');
 		}
+
+		if (!DB.orders.hasOwnProperty(String_orderID)) {
+			throw new Error('Order was not found in the database');
+		}
 		var match = DB.orders[String_orderID];
 		return match;
 	};
