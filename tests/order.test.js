@@ -93,4 +93,9 @@ describe('Order.readOrder', function() {
 		expect(Order.readOrder('order-1')).toHaveProperty('time');
 		expect(Order.readOrder('order-1')).toHaveProperty('products');
 	});
+
+	it('should return na object with the expected values', function() {
+		var firstOrder = Order.readOrder('order-1');
+		expect(firstOrder).toHaveProperty('orderID', 'order-1');
+	});
 });
