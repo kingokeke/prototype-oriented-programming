@@ -35,6 +35,7 @@ var Order = (function() {
 		if (!DB.orders.hasOwnProperty(String_orderID)) {
 			throw new Error('Order was not found in the database');
 		}
+
 		var match = DB.orders[String_orderID];
 		return match;
 	};

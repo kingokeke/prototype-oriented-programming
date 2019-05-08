@@ -147,3 +147,10 @@ describe('Admin.prototype.readAllOrders', function() {
 		}).toThrowError('Your account has been disabled. Please contact an admin for further assistance.');
 	});
 });
+
+describe('Admin.prototype.readOrder', function() {
+	it('should exist', function() {
+		var brown = new Admin('Brown', 'brown@mail.com', '1961');
+		expect(brown).toHaveProperty('readOrder');
+	});
+});
