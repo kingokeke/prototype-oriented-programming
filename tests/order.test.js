@@ -98,4 +98,10 @@ describe('Order.readOrder', function() {
 		var firstOrder = Order.readOrder('order-1');
 		expect(firstOrder).toHaveProperty('orderID', 'order-1');
 	});
+
+	it('should throw an error if the orderID does not exist', function() {
+		expect(function() {
+			Order.readOrder('order-10000');
+		}).toThrowError('Order was not found in the database');
+	});
 });
