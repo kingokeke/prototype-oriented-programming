@@ -41,6 +41,10 @@ var Order = (function() {
 	};
 
 	Order.updateDetails = function(Array_products) {
+		if (arguments.length !== 1) {
+			throw new Error('Invalid parameters supplied. Please supply only one parameter.');
+		}
+
 		return {};
 	};
 

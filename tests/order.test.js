@@ -112,12 +112,22 @@ describe('Order.updateDetails', function() {
 	});
 
 	it('should return a result that is not undefined', function() {
-		expect(Order.updateDetails()).toBeDefined();
+		expect(Order.updateDetails(['towel'])).toBeDefined();
 	});
 
 	it('should accept only one parameter', function() {
 		expect(function() {
 			Order.updateDetails(['comb', 'spoon'], 'tea');
 		}).toThrowError('Invalid parameters supplied. Please supply only one parameter.');
+
+		expect(function() {
+			Order.updateDetails();
+		}).toThrowError('Invalid parameters supplied. Please supply only one parameter.');
+	});
+
+	it('should accept only an array as parameter', function() {
+		expect(function() {
+			Order.updateDetails('hair');
+		}).toThrowError('Invalid parameters supplied. Please supply only one array as a parameter.');
 	});
 });
