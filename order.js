@@ -55,7 +55,10 @@ var Order = (function() {
 			}
 		}
 
-		return {};
+		DB.orders[orderID].products = Array_products;
+
+		console.log(DB.orders[orderID]);
+		return DB.orders[orderID];
 	};
 
 	return Order;
