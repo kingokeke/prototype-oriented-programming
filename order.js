@@ -40,6 +40,8 @@ var Order = (function() {
 		return match;
 	};
 
+	Order.updateDetails = function(Array_products) {};
+
 	return Order;
 })();
 
