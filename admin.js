@@ -89,6 +89,8 @@ var Admin = (function() {
 		return allOrders;
 	};
 
+	Admin.prototype.readOrder = function() {};
+
 	return Admin;
 })();
 
