@@ -45,6 +45,10 @@ var Order = (function() {
 			throw new Error('Invalid parameters supplied. Please supply only one parameter.');
 		}
 
+		if (!Array.isArray(Array_products)) {
+			throw new Error('Invalid parameters supplied. Please supply only one array as a parameter.');
+		}
+
 		return {};
 	};
 
