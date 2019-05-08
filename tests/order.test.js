@@ -149,7 +149,8 @@ describe('Order.updateDetails', function() {
 		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings.');
 	});
 
-	it('should update the order details', function() {
-		expect(Order.updateDetails('order-1', ['']));
+	it('should update the order details and return the updated order details', function() {
+		var currentOrder = new Order('beer', 'malt', 'wine');
+		expect(Order.updateDetails(currentOrder.orderID, ['water', 'soda']).products).toEqual(['water', 'soda']);
 	});
 });
