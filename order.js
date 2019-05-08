@@ -40,13 +40,13 @@ var Order = (function() {
 		return match;
 	};
 
-	Order.updateDetails = function(Array_products) {
-		if (arguments.length !== 1) {
-			throw new Error('Invalid parameters supplied. Please supply only one array as a parameter.');
+	Order.updateDetails = function(orderID, Array_products) {
+		if (arguments.length !== 2) {
+			throw new Error('Invalid parameters supplied. Please supply only one string and one array as parameter.');
 		}
 
 		if (!Array.isArray(Array_products)) {
-			throw new Error('Invalid parameters supplied. Please supply only one array as a parameter.');
+			throw new Error('Invalid parameters supplied. Please supply an array as the second parameter.');
 		}
 
 		for (var i = 0; i < Array_products.length; i++) {

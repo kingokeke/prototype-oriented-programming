@@ -112,37 +112,44 @@ describe('Order.updateDetails', function() {
 	});
 
 	it('should return a result that is not undefined', function() {
-		expect(Order.updateDetails(['towel'])).toBeDefined();
+		expect(Order.updateDetails('order-1', ['towel'])).toBeDefined();
 	});
 
-	it('should accept only one parameter', function() {
+	it('should accept two parameters', function() {
 		expect(function() {
-			Order.updateDetails(['comb', 'spoon'], 'tea');
-		}).toThrowError('Invalid parameters supplied. Please supply only one array as a parameter.');
+			Order.updateDetails(['comb', 'spoon']);
+		}).toThrowError('Invalid parameters supplied. Please supply only one string and one array as parameter.');
 
 		expect(function() {
 			Order.updateDetails();
-		}).toThrowError('Invalid parameters supplied. Please supply only one array as a parameter.');
+		}).toThrowError('Invalid parameters supplied. Please supply only one string and one array as parameter.');
 	});
 
-	it('should accept only an array as parameter', function() {
+	it('should accept only an array as the second parameter', function() {
 		expect(function() {
-			Order.updateDetails('hair');
-		}).toThrowError('Invalid parameters supplied. Please supply only one array as a parameter.');
+			Order.updateDetails('hair', 'soap');
+		}).toThrowError('Invalid parameters supplied. Please supply an array as the second parameter.');
 	});
 
 	it('should accept only strings inside of the array', function() {
 		expect(function() {
-			Order.updateDetails([23, 'ham']);
+			Order.updateDetails('bacon', [23, 'ham']);
 		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings.');
+
 		expect(function() {
-			Order.updateDetails([null, 'ham']);
+			Order.updateDetails('bacon', [null, 'ham']);
 		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings.');
+
 		expect(function() {
-			Order.updateDetails([false, 'ham']);
+			Order.updateDetails('bacon', [false, 'ham']);
 		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings.');
+
 		expect(function() {
-			Order.updateDetails([{item: 'bacon'}, 'ham']);
+			Order.updateDetails('bacon', [{item: 'bacon'}, 'ham']);
 		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings.');
+	});
+
+	it('should update the order details', function() {
+		expect(Order.updateDetails('order-1', ['']));
 	});
 });
