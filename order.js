@@ -42,7 +42,7 @@ var Order = (function() {
 
 	Order.updateDetails = function(Array_products) {
 		if (arguments.length !== 1) {
-			throw new Error('Invalid parameters supplied. Please supply only one parameter.');
+			throw new Error('Invalid parameters supplied. Please supply only one array as a parameter.');
 		}
 
 		if (!Array.isArray(Array_products)) {

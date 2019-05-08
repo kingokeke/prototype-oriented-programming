@@ -80,7 +80,7 @@ describe('Order.readOrder', function() {
 		}).toThrowError('Invalid parameters supplied. Parameter must be a strings only.');
 	});
 
-	it('should take ONLY strings as parameters', function() {
+	it('should take ONLY one strings as parameter', function() {
 		expect(function() {
 			Order.readOrder('order-1', 'order-2');
 		}).toThrowError('Invalid parameters supplied. Please supply just ONE string parameter.');
@@ -118,16 +118,22 @@ describe('Order.updateDetails', function() {
 	it('should accept only one parameter', function() {
 		expect(function() {
 			Order.updateDetails(['comb', 'spoon'], 'tea');
-		}).toThrowError('Invalid parameters supplied. Please supply only one parameter.');
+		}).toThrowError('Invalid parameters supplied. Please supply only one array as a parameter.');
 
 		expect(function() {
 			Order.updateDetails();
-		}).toThrowError('Invalid parameters supplied. Please supply only one parameter.');
+		}).toThrowError('Invalid parameters supplied. Please supply only one array as a parameter.');
 	});
 
 	it('should accept only an array as parameter', function() {
 		expect(function() {
 			Order.updateDetails('hair');
 		}).toThrowError('Invalid parameters supplied. Please supply only one array as a parameter.');
+	});
+
+	it('should accept only strings inside of the array', function() {
+		expect(function() {
+			Order.updateDetails([23, 'ham']);
+		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings');
 	});
 });
