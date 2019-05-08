@@ -156,6 +156,6 @@ describe('Admin.prototype.readOrder', function() {
 	});
 
 	it('should return a response that is not undefined', function() {
-		expect(brown.readOrder()).toBeDefined();
+		expect(brown.readOrder('order-1')).toBeDefined();
 	});
 });

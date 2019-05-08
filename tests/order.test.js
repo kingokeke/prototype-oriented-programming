@@ -12,7 +12,7 @@ describe('Order constructor', function() {
 
 	it('should increment the order count', function() {
 		var initialOrderCount = DB.orderCount;
-		var order2 = new Order('user-1', ['tea', 'bread', 'butter']);
+		new Order('user-1', ['tea', 'bread', 'butter']);
 		expect(DB.orderCount).toBe(initialOrderCount + 1);
 	});
 
@@ -94,7 +94,7 @@ describe('Order.readOrder', function() {
 		expect(Order.readOrder('order-1')).toHaveProperty('products');
 	});
 
-	it('should return na object with the expected values', function() {
+	it('should return an object with the expected values', function() {
 		var firstOrder = Order.readOrder('order-1');
 		expect(firstOrder).toHaveProperty('orderID', 'order-1');
 	});
@@ -103,5 +103,11 @@ describe('Order.readOrder', function() {
 		expect(function() {
 			Order.readOrder('order-10000');
 		}).toThrowError('Order was not found in the database');
+	});
+});
+
+describe('Order.updateDetails', function() {
+	it('should exist', function() {
+		expect(Order).toHaveProperty('updateDetails');
 	});
 });

@@ -89,8 +89,11 @@ var Admin = (function() {
 		return allOrders;
 	};
 
-	Admin.prototype.readOrder = function() {
-		return {};
+	Admin.prototype.readOrder = function(String_orderID) {
+		var match = Order.readOrder(String_orderID);
+
+		console.log(match);
+		return match;
 	};
 
 	return Admin;
