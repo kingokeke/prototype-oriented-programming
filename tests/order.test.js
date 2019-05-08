@@ -134,6 +134,15 @@ describe('Order.updateDetails', function() {
 	it('should accept only strings inside of the array', function() {
 		expect(function() {
 			Order.updateDetails([23, 'ham']);
-		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings');
+		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings.');
+		expect(function() {
+			Order.updateDetails([null, 'ham']);
+		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings.');
+		expect(function() {
+			Order.updateDetails([false, 'ham']);
+		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings.');
+		expect(function() {
+			Order.updateDetails([{item: 'bacon'}, 'ham']);
+		}).toThrowError('Invalid parameters supplied. All elements of the array must be strings.');
 	});
 });

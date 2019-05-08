@@ -49,6 +49,12 @@ var Order = (function() {
 			throw new Error('Invalid parameters supplied. Please supply only one array as a parameter.');
 		}
 
+		for (var i = 0; i < Array_products.length; i++) {
+			if (typeof Array_products[i] !== 'string') {
+				throw new Error('Invalid parameters supplied. All elements of the array must be strings.');
+			}
+		}
+
 		return {};
 	};
 
