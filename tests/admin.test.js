@@ -149,8 +149,13 @@ describe('Admin.prototype.readAllOrders', function() {
 });
 
 describe('Admin.prototype.readOrder', function() {
+	var brown = new Admin('Brown', 'brown@mail.com', '1961');
+
 	it('should exist', function() {
-		var brown = new Admin('Brown', 'brown@mail.com', '1961');
 		expect(brown).toHaveProperty('readOrder');
+	});
+
+	it('should return a response that is not undefined', function() {
+		expect(brown.readOrder()).toBeDefined();
 	});
 });
