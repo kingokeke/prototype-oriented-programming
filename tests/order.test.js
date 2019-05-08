@@ -110,4 +110,8 @@ describe('Order.updateDetails', function() {
 	it('should exist', function() {
 		expect(Order).toHaveProperty('updateDetails');
 	});
+
+	it('should return a result that is not undefined', function() {
+		expect(Order.updateDetails()).toBeDefined();
+	});
 });
