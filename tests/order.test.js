@@ -167,8 +167,6 @@ describe('Order.delete', function() {
 describe('order.deleteAll', function() {
 	it('should delete all orders', function() {
 		Order.deleteAll();
-		expect(function() {
-			Order.readAllOrders();
-		}).not.toBeDefined();
+		expect(Order.readAllOrders()).toEqual({});
 	});
 });
