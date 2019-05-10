@@ -96,6 +96,8 @@ var Admin = (function() {
 		return match;
 	};
 
+	Admin.prototype.updateOrder = function() {};
+
 	return Admin;
 })();
 

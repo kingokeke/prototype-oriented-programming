@@ -163,6 +163,6 @@ describe('Admin.prototype.readOrder', function() {
 describe('Admin.prototype.updateOrder', function() {
 	var billy = new Admin('Brown', 'billy@mail.com', '1961');
 	it('should exist', function() {
-		expect(billy.toHaveProperty('updateOrder'));
+		expect(billy).toHaveProperty('updateOrder');
 	});
 });
