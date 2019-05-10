@@ -177,8 +177,13 @@ describe('Admin.prototype.updateOrder', function() {
 });
 
 describe('Admin.prototype.deleteOrder', function() {
+	var bart = new Admin('Bart', 'bart@mail.com', '1961');
+
 	it('should exist', function() {
-		var bart = new Admin('Bart', 'bart@mail.com', '1961');
 		expect(bart).toHaveProperty('deleteOrder');
+	});
+
+	it('should return a result that is not undefined', function() {
+		expect(bart.deleteOrder('order-1')).toBeDefined();
 	});
 });
