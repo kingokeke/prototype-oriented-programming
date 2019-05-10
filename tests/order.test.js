@@ -154,3 +154,9 @@ describe('Order.updateDetails', function() {
 		expect(Order.updateDetails(currentOrder.orderID, ['water', 'soda']).products).toEqual(['water', 'soda']);
 	});
 });
+describe('Order.delete', function() {
+	it('should delete an order', function() {
+		Order.delete('order-1');
+		expect(Order.readOrder('order-1')).not.toBeDefined();
+	});
+});
