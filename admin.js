@@ -102,6 +102,8 @@ var Admin = (function() {
 		return updatedDetails;
 	};
 
+	Admin.prototype.deleteOrder = function() {};
+
 	return Admin;
 })();
 
