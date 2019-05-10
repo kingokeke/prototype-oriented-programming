@@ -154,11 +154,21 @@ describe('Order.updateDetails', function() {
 		expect(Order.updateDetails(currentOrder.orderID, ['water', 'soda']).products).toEqual(['water', 'soda']);
 	});
 });
+
 describe('Order.delete', function() {
 	it('should delete an order', function() {
 		Order.delete('order-1');
 		expect(function() {
 			Order.readOrder('order-1');
 		}).toThrowError('Order was not found in the database');
+	});
+});
+
+describe('order.deleteAll', function() {
+	it('should delete all orders', function() {
+		Order.deleteAll();
+		expect(function() {
+			Order.readAllOrders();
+		}).not.toBeDefined();
 	});
 });
