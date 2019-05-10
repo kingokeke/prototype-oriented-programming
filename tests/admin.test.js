@@ -165,4 +165,8 @@ describe('Admin.prototype.updateOrder', function() {
 	it('should exist', function() {
 		expect(billy).toHaveProperty('updateOrder');
 	});
+
+	it('should return a result that is not undefined', function() {
+		expect(billy.updateOrder('order-1', ['mat'])).toBeDefined();
+	});
 });
