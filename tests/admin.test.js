@@ -161,7 +161,8 @@ describe('Admin.prototype.readOrder', function() {
 });
 
 describe('Admin.prototype.updateOrder', function() {
-	var billy = new Admin('Brown', 'billy@mail.com', '1961');
+	var billy = new Admin('Billy', 'billy@mail.com', '1961');
+
 	it('should exist', function() {
 		expect(billy).toHaveProperty('updateOrder');
 	});
@@ -172,5 +173,12 @@ describe('Admin.prototype.updateOrder', function() {
 
 	it('should update the order details and return the updated order details', function() {
 		expect(billy.updateOrder('order-1', ['water', 'soda'])).toHaveProperty('products', ['water', 'soda']);
+	});
+});
+
+describe('Admin.prototype.deleteOrder', function() {
+	it('should exist', function() {
+		var bart = new Admin('Bart', 'bart@mail.com', '1961');
+		expect(bart).toHaveProperty('deleteOrder');
 	});
 });
