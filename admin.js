@@ -96,7 +96,11 @@ var Admin = (function() {
 		return match;
 	};
 
-	Admin.prototype.updateOrder = function() {};
+	Admin.prototype.updateOrder = function(String_orderID, Array_products) {
+		var updatedDetails = Order.updateDetails(String_orderID, Array_products);
+		console.log(updatedDetails);
+		return updatedDetails;
+	};
 
 	return Admin;
 })();

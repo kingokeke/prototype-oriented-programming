@@ -169,4 +169,8 @@ describe('Admin.prototype.updateOrder', function() {
 	it('should return a result that is not undefined', function() {
 		expect(billy.updateOrder('order-1', ['mat'])).toBeDefined();
 	});
+
+	it('should update the order details and return the updated order details', function() {
+		expect(billy.updateOrder('order-1', ['water', 'soda'])).toHaveProperty('products', ['water', 'soda']);
+	});
 });
