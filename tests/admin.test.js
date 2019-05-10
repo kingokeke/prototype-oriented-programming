@@ -159,3 +159,10 @@ describe('Admin.prototype.readOrder', function() {
 		expect(brown.readOrder('order-1')).toBeDefined();
 	});
 });
+
+describe('Admin.prototype.updateOrder', function() {
+	var billy = new Admin('Brown', 'billy@mail.com', '1961');
+	it('should exist', function() {
+		expect(billy.toHaveProperty('updateOrder'));
+	});
+});
