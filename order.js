@@ -61,6 +61,11 @@ var Order = (function() {
 		return DB.orders[orderID];
 	};
 
+	Order.delete = function(String_orderID) {
+		delete DB.orders[String_orderID];
+		return DB.orders[String_orderID];
+	};
+
 	return Order;
 })();
 
