@@ -194,3 +194,14 @@ describe('Admin.prototype.deleteOrder', function() {
 		expect(bart.deleteOrder(bartOrder2.orderID)).toHaveProperty('products', ['sneakers', 'sandals', 'stilettos']);
 	});
 });
+
+describe('Admin.prototype.deleteOrders', function() {
+	var bobby = new Admin('Bobby', 'bobby@mail.com', '1961');
+	var bobbyOrder1 = bobby.createNewOrder('pen', 'paper', 'pencil');
+	var bobbyOrder2 = bobby.createNewOrder('sneakers', 'sandals', 'stilettos');
+	var bobbyOrder3 = bobby.createNewOrder('bread', 'biscuits', 'berries');
+
+	it('should exist', function() {
+		expect(bobby).toHaveProperty('deleteAllOrders');
+	});
+});
