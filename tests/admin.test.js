@@ -178,12 +178,19 @@ describe('Admin.prototype.updateOrder', function() {
 
 describe('Admin.prototype.deleteOrder', function() {
 	var bart = new Admin('Bart', 'bart@mail.com', '1961');
+	var bartOrder1 = bart.createNewOrder('pen', 'paper', 'pencil');
+	var bartOrder2 = bart.createNewOrder('sneakers', 'sandals', 'stilettos');
+	var bartOrder3 = bart.createNewOrder('bread', 'biscuits', 'berries');
 
 	it('should exist', function() {
 		expect(bart).toHaveProperty('deleteOrder');
 	});
 
 	it('should return a result that is not undefined', function() {
-		expect(bart.deleteOrder('order-1')).toBeDefined();
+		expect(bart.deleteOrder(bartOrder1.orderID)).toBeDefined();
+	});
+
+	it('should delete the order and return the deleted order details', function() {
+		expect(bart.deleteOrder(bartOrder2.orderID)).toHaveProperty('products', ['sneakers', 'sandals', 'stilettos']);
 	});
 });
