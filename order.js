@@ -62,8 +62,9 @@ var Order = (function() {
 	};
 
 	Order.delete = function(String_orderID) {
+		var deletedOrder = DB.orders[String_orderID];
 		delete DB.orders[String_orderID];
-		return DB.orders[String_orderID];
+		return deletedOrder;
 	};
 
 	Order.deleteAll = function() {

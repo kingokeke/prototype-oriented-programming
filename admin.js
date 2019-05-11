@@ -102,7 +102,11 @@ var Admin = (function() {
 		return updatedDetails;
 	};
 
-	Admin.prototype.deleteOrder = function() {};
+	Admin.prototype.deleteOrder = function(String_orderID) {
+		var deletedOrder = Order.delete(String_orderID);
+		console.log(deletedOrder);
+		return deletedOrder;
+	};
 
 	return Admin;
 })();
