@@ -108,6 +108,8 @@ var Admin = (function() {
 		return deletedOrder;
 	};
 
+	Admin.prototype.deleteAllOrders = function() {};
+
 	return Admin;
 })();
 
