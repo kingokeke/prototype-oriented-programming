@@ -204,4 +204,8 @@ describe('Admin.prototype.deleteOrders', function() {
 	it('should exist', function() {
 		expect(bobby).toHaveProperty('deleteAllOrders');
 	});
+
+	it('should return a result that is not undefined', function() {
+		expect(bobby.deleteAllOrders()).toBeDefined();
+	});
 });
