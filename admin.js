@@ -109,7 +109,9 @@ var Admin = (function() {
 	};
 
 	Admin.prototype.deleteAllOrders = function() {
-		return {};
+		Order.deleteAll();
+		console.log(DB.orders);
+		return DB.orders;
 	};
 
 	return Admin;
