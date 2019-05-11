@@ -194,11 +194,11 @@ describe('Admin.prototype.deleteOrder', function() {
 	});
 });
 
-describe('Admin.prototype.deleteOrders', function() {
+describe('Admin.prototype.deleteAllOrders', function() {
 	var bobby = new Admin('Bobby', 'bobby@mail.com', '1961');
-	var bobbyOrder1 = bobby.createNewOrder('pen', 'paper', 'pencil');
-	var bobbyOrder2 = bobby.createNewOrder('sneakers', 'sandals', 'stilettos');
-	var bobbyOrder3 = bobby.createNewOrder('bread', 'biscuits', 'berries');
+	bobby.createNewOrder('pen', 'paper', 'pencil');
+	bobby.createNewOrder('sneakers', 'sandals', 'stilettos');
+	bobby.createNewOrder('bread', 'biscuits', 'berries');
 
 	it('should exist', function() {
 		expect(bobby).toHaveProperty('deleteAllOrders');
@@ -206,5 +206,9 @@ describe('Admin.prototype.deleteOrders', function() {
 
 	it('should return a result that is not undefined', function() {
 		expect(bobby.deleteAllOrders()).toBeDefined();
+	});
+
+	it('should delete the order and return the deleted order details', function() {
+		expect(bobby.deleteAllOrders()).toEqual({});
 	});
 });
