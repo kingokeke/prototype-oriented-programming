@@ -4,7 +4,7 @@ var Admin = (function() {
 	var User = require('./user');
 	var Order = require('./order');
 
-	// DEFINES ADMIN CONSTRUCTOR AND INHERITS PROPERTIES FROM USER CONSTRUCTOR
+	// DEFINES ADMIN CONSTRUCTOR FUNCTION AND INHERITS PROPERTIES FROM USER CONSTRUCTOR
 	function Admin(String_name, String_email, String_password) {
 		User.call(this, String_name, String_email, String_password);
 		this.isAdmin = true;
@@ -14,6 +14,7 @@ var Admin = (function() {
 	// INHERITS METHODS FROM USER.PROTOTYPE
 	Admin.prototype = Object.create(User.prototype, {constructor: {value: Admin}});
 
+	// METHOD TO READ ALL USERS FROM THE DATABASE
 	Admin.prototype.readAllUsers = function() {
 		var errorMessage;
 
@@ -24,12 +25,13 @@ var Admin = (function() {
 			throw new Error(errorMessage);
 		}
 
-		// RETURNS ALL USERS FROM THE DB
+		// FETCHES AND RETURNS ALL USERS FROM THE DATABASE
 		console.log('Retrieving all users from the database...');
 		console.log(DB.users);
 		return DB.users;
 	};
 
+	// METHOD TO DELETE A USER FROM THE DATABASE
 	Admin.prototype.deleteUser = function(String_userID) {
 		var errorMessage;
 
@@ -63,6 +65,7 @@ var Admin = (function() {
 		return DB.users[String_userID];
 	};
 
+	// METHOD TO DELETE ALL USERS FROM THE DATABASE
 	Admin.prototype.deleteAllUsers = function() {
 		var errorMessage;
 
@@ -85,6 +88,7 @@ var Admin = (function() {
 		return DB.users;
 	};
 
+	// METHOD TO READ ALL ORDERS FROM THE DATABASE
 	Admin.prototype.readAllOrders = function() {
 		var errorMessage;
 
@@ -102,6 +106,7 @@ var Admin = (function() {
 		return allOrders;
 	};
 
+	// METHOD TO READ A SINGLE ORDER FROM THE DATABASE USING THE ORDER ID
 	Admin.prototype.readOrder = function(String_orderID) {
 		// FETCHES AN ORDER FROM THE DB USING THE ORDER ID
 		var match = Order.readOrder(String_orderID);
@@ -109,6 +114,7 @@ var Admin = (function() {
 		return match;
 	};
 
+	// METHOD TO FIND AN ORDER IN THE DATABASE AND UPDATE ITS DETAILS
 	Admin.prototype.updateOrder = function(String_orderID, Array_products) {
 		// UPDATES AN ORDER WITH NEW PRODUCT DETAILS SUPPLIED BY THE ARGUMENTS
 		var updatedDetails = Order.updateDetails(String_orderID, Array_products);
@@ -116,6 +122,7 @@ var Admin = (function() {
 		return updatedDetails;
 	};
 
+	// METHOD TO FIND AN ORDER IN THE DATABASE USING THE ORDER ID AND DELETE IT
 	Admin.prototype.deleteOrder = function(String_orderID) {
 		// DELETES AN ORDER FROM THE DATABASE AND RETURN THE DETAILS OF THE DELETED ORDER
 		var deletedOrder = Order.delete(String_orderID);
@@ -123,6 +130,7 @@ var Admin = (function() {
 		return deletedOrder;
 	};
 
+	// METHOD TO DELETE ALL ORDERS IN THE DATABASE
 	Admin.prototype.deleteAllOrders = function() {
 		// DELETES ALL ORDERS FROM THE DATABASE AND RETURNS THE ORDER DATABASE
 		Order.deleteAll();
