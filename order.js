@@ -86,14 +86,12 @@ var Order = (function() {
 
 		// UPDATES THE ORDER DETAILS IN THE DATABASE WITH THE NEW DETAILS AND RETURNS THE UPDATED ORDER
 		DB.orders[orderID].products = Array_products;
-
-		console.log(DB.orders[orderID]);
 		return DB.orders[orderID];
 	};
 
 	// STATIC METHOD TO FIND A SINGLE ORDER IN THE DATABASE USING ITS ORDER ID AND DELETE IT
 	Order.delete = function(String_orderID) {
-		var deletedOrder = DB.orders[String_orderID];
+		var deletedOrder = Object.create(DB.orders[String_orderID]);
 		delete DB.orders[String_orderID];
 		return deletedOrder;
 	};
