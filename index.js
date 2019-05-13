@@ -8,8 +8,6 @@ var Order = require('./order');
 var adam = new User('Adam', 'adam@mail.com', '1234');
 var ben = new User('Ben', 'ben@mail.com', '1234');
 var charles = new User('Charles', 'charles@mail.com', '1234');
-var david = new User('David', 'david@mail.com', '1234');
-var edwin = new User('Edwin', 'edwin@mail.com', '1234');
 
 // CREATES NEW ADMINS
 var alexis = new Admin('Alexis', 'alexis@mail.com', '4321');
@@ -51,3 +49,48 @@ daphne.searchUsername('Benjamin'); // ADMIN CAN SEARCH THE DATABASE FOR USERS WU
 // DELETES A USER IN THE DATABASE
 // ------------------------------
 erica.deleteAllUsers(); // ADMIN CAN DELETE A USER FROM THE DATABASE
+
+// CREATES NEW USERS
+var david = new User('David', 'david@mail.com', '1234');
+
+// CREATES NEW ADMINS
+var fiona = new Admin('Fiona', 'fiona@mail.com', '4321');
+var gertrude = new Admin('Gertrude', 'gertrude@mail.com', '4321');
+var hailie = new Admin('Hailie', 'hailie@mail.com', '4321');
+var ingrid = new Admin('Ingrid', 'ingrid@mail.com', '4321');
+var joanne = new Admin('Joanne', 'joanne@mail.com', '4321');
+
+// ------------------------------
+// CREATES A NEW ORDER
+// ------------------------------
+david.createNewOrder('soap', 'sponge'); // USER CAN CREATE A NEW ORDER
+david.createNewOrder('bag', 'broom'); // USER CAN CREATE A NEW ORDER
+gertrude.createNewOrder('pen', 'pencil', 'paper', 'palette', 'paint'); // ADMIN CAN CREATE A NEW ORDER
+gertrude.createNewOrder('mat', 'rug'); // ADMIN CAN CREATE A NEW ORDER
+
+// ------------------------------
+// READ ALL THE ORDERS
+// ------------------------------
+fiona.readAllOrders(); // ADMIN CAN LOOK UP DETAILS OF ALL THE ORDERS IN THE DATABASE
+
+// ------------------------------
+// READ A SINGLE ORDER USING ITS ID
+// ------------------------------
+gertrude.readOrder('order-1'); // ADMIN CAN LOOK UP THE DETAILS OF AN ORDER USING ITS ORDER ID
+
+// ------------------------------
+// UPDATE ORDER DETAILS IN THE DATABASE USING ITS ORDER ID
+// ------------------------------
+hailie.updateOrder('order-1', ['apples', 'bananas', 'carrots']); // ADMIN CAN UPDATE THE DETAILS OF AN ORDER USING ITS ORDER ID
+
+// ------------------------------
+// DELETE A SINGLE ORDER FROM THE DATABASE USING ITS ORDER ID
+// ------------------------------
+ingrid.deleteOrder('order-3'); // ADMIN CAN DELETE AN ORDER FROM THE DATABASE USING ITS ORDER ID
+ingrid.readAllOrders(); // READ ALL ORDERS SHOWS THAT THE DELETED ORDER IS NOT IN THE DATABASE
+
+// ------------------------------
+// DELETE ALL ORDERS FROM THE DATABASE
+// ------------------------------
+joanne.deleteAllOrders(); // ADMIN CAN DELETE ALL ORDERS IN THE DATABASE
+joanne.readAllOrders(); // READ ALL ORDERS SHOWS THAT ALL ORDERS HAVE BEEN DELETED FROM THE DATABASE
