@@ -1,15 +1,20 @@
+// ------------------------------
 // IMPORTS REQUIRED FILES
-var DB = require('./db');
+// ------------------------------
+
 var User = require('./user');
 var Admin = require('./admin');
-var Order = require('./order');
 
+// ------------------------------
 // CREATES NEW USERS
+// ------------------------------
 var adam = new User('Adam', 'adam@mail.com', '1234');
 var ben = new User('Ben', 'ben@mail.com', '1234');
 var charles = new User('Charles', 'charles@mail.com', '1234');
 
+// ------------------------------
 // CREATES NEW ADMINS
+// ------------------------------
 var alexis = new Admin('Alexis', 'alexis@mail.com', '4321');
 var barbara = new Admin('Barbara', 'barbara@mail.com', '4321');
 var christine = new Admin('Christine', 'christine@mail.com', '4321');
@@ -50,10 +55,14 @@ daphne.searchUsername('Benjamin'); // ADMIN CAN SEARCH THE DATABASE FOR USERS WU
 // ------------------------------
 erica.deleteAllUsers(); // ADMIN CAN DELETE A USER FROM THE DATABASE
 
+// ------------------------------
 // CREATES NEW USERS
+// ------------------------------
 var david = new User('David', 'david@mail.com', '1234');
 
+// ------------------------------
 // CREATES NEW ADMINS
+// ------------------------------
 var fiona = new Admin('Fiona', 'fiona@mail.com', '4321');
 var gertrude = new Admin('Gertrude', 'gertrude@mail.com', '4321');
 var hailie = new Admin('Hailie', 'hailie@mail.com', '4321');
