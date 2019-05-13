@@ -91,6 +91,7 @@ var User = (function() {
 			isAdmin: DB.users[this.userID].isAdmin,
 		};
 
+		console.log(updatedUserDetails);
 		return updatedUserDetails;
 	};
 
