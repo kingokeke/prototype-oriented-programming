@@ -21,13 +21,33 @@ var erica = new Admin('Erica', 'erica@mail.com', '4321');
 // ------------------------------
 // READ A SINGLE USER BY HIS ID
 // ------------------------------
-// adam.readUser('user-2'); // USER CAN LOOK UP THE DETAILS OF A SINGLE USER USING HIS ID
-// alexis.readUser('user-2'); // ADMIN CAN LOOK UP THE DETAILS OF A SINGLE USER USING HIS ID
+adam.readUser('user-7'); // USER CAN LOOK UP THE DETAILS OF A SINGLE USER USING HIS ID
+alexis.readUser('user-2'); // ADMIN CAN LOOK UP THE DETAILS OF A SINGLE USER USING HIS ID
 
 // ------------------------------
-// READS ALL USERS
+// READS ALL USERS IN THE DATABASE
 // ------------------------------
-// alexis.readAllUsers(); // ONLY ADMIN CAN LOOK UP THE DETAILS OF ALL USERS
+alexis.readAllUsers(); // ONLY ADMIN CAN LOOK UP THE DETAILS OF ALL USERS
 
+// ------------------------------
 // UPDATES THE DETAILS OF A USER
-ben.updateUserDetails({name: 'Benjamin'});
+// ------------------------------
+ben.updateUserDetails({name: 'Benjamin'}); // USER CAN UPDATE HIS USER DETAILS
+barbara.updateUserDetails({name: 'Barbie', email: 'barbie@mymail.com'}); // ADMIN CAN UPDATE HIS USER DETAILS
+
+// ------------------------------
+// DELETES A USER IN THE DATABASE
+// ------------------------------
+christine.deleteUser('user-1'); // ADMIN CAN DELETE A USER FROM THE DATABASE
+christine.deleteUser('user-6'); // ADMIN CAN DELETE AN ADMIN FROM THE DATABASE
+
+// ------------------------------
+// DELETES A USER IN THE DATABASE
+// ------------------------------
+charles.searchUsername('Daphne'); // USER CAN SEARCH THE DATABASE FOR USERS WUTH A PARTICULAR USERNAME
+daphne.searchUsername('Benjamin'); // ADMIN CAN SEARCH THE DATABASE FOR USERS WUTH A PARTICULAR USERNAME
+
+// ------------------------------
+// DELETES A USER IN THE DATABASE
+// ------------------------------
+erica.deleteAllUsers(); // ADMIN CAN DELETE A USER FROM THE DATABASE
