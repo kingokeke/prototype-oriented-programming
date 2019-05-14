@@ -76,8 +76,8 @@ var Order = (function() {
 		}
 
 		// THROWS ERROR IF THE CONTENTS OF THE SECOND ARGUMENT (ARRAY) ARE NOT STRINGS
-		for (var i = 0; i < Array_products.length; i++) {
-			if (typeof Array_products[i] !== 'string') {
+		for (var index = 0; index < Array_products.length; index++) {
+			if (typeof Array_products[index] !== 'string') {
 				errorMessage = 'Invalid parameters supplied. All elements of the array must be strings.';
 				console.log(errorMessage);
 				throw new Error(errorMessage);

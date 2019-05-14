@@ -79,8 +79,8 @@ var Admin = (function() {
 		// DELETES ALL USERS (BY SETTING THEIR ISACTIVE PROPERTY TO FALSE), THEN RETURNS THE USERS DATABASE
 		console.log('Deleting all users...');
 		var userIDs = Object.keys(DB.users);
-		for (var i = 0; i < userIDs.length; i++) {
-			DB.users[userIDs[i]].isActive = false;
+		for (var index = 0; index < userIDs.length; index++) {
+			DB.users[userIDs[index]].isActive = false;
 		}
 
 		console.log('All users deleted. Retrieving user details for all users...');

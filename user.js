@@ -78,8 +78,8 @@ var User = (function() {
 
 		// UPDATES THE USER DETAILS IN THE DATABASE WITH THE NEW DETAILS SUPPLIED IN THE ARGUMENTS
 		var details = Object.keys(Object_userDetails);
-		for (var i = 0; i < details.length; i++) {
-			DB.users[this.userID][details[i]] = Object_userDetails[details[i]];
+		for (var index = 0; index < details.length; index++) {
+			DB.users[this.userID][details[index]] = Object_userDetails[details[index]];
 		}
 
 		// FETCHES THE UPDATED DETAILS FROM THE DATABASE AND RETURNS IT
@@ -118,13 +118,13 @@ var User = (function() {
 		var matches = [];
 
 		console.log('Querying the database for users with username: ' + username);
-		for (var i = 0; i < userIDs.length; i++) {
-			if (DB.users[userIDs[i]].name === username && DB.users[userIDs[i]].isActive === true) {
+		for (var index = 0; index < userIDs.length; index++) {
+			if (DB.users[userIDs[index]].name === username && DB.users[userIDs[index]].isActive === true) {
 				var match = {
-					userID: DB.users[userIDs[i]].userID,
-					name: DB.users[userIDs[i]].name,
-					email: DB.users[userIDs[i]].email,
-					isAdmin: DB.users[userIDs[i]].isAdmin,
+					userID: DB.users[userIDs[index]].userID,
+					name: DB.users[userIDs[index]].name,
+					email: DB.users[userIDs[index]].email,
+					isAdmin: DB.users[userIDs[index]].isAdmin,
 				};
 				matches[matches.length] = match;
 			}
@@ -155,13 +155,13 @@ var User = (function() {
 
 		// CHECKS IF THE PROPER ARGUMENT TYPE IS PASSED INTO THE FUNCTION AND THEN ADDS ALL THE ARGUMENTS SUPPLIED TO AN ARRAY
 		var orderedProducts = [];
-		for (var i = 0; i < arguments.length; i++) {
-			if (typeof arguments[i] !== 'string') {
+		for (var index = 0; index < arguments.length; index++) {
+			if (typeof arguments[index] !== 'string') {
 				errorMessage = 'Invalid parameters supplied. Parameters must be strings only.';
 				console.log(errorMessage);
 				throw new Error(errorMessage);
 			}
-			orderedProducts.push(arguments[i]);
+			orderedProducts.push(arguments[index]);
 		}
 
 		//  CREATES A NEW ORDER USING THE DETAILS SUPPLIED
